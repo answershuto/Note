@@ -1,0 +1,13 @@
+var NoteController = require('../controllers/note.server.controller');
+
+module.exports = function(app){
+	app.route('/')
+		.get(function(req,res,next){
+			res.render('index.html');
+		});
+	app.route('/note/create')
+		.post(NoteController.create);
+
+	app.route('/note/find')
+		.all(NoteController.find);
+}

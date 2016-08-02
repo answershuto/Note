@@ -1,0 +1,14 @@
+.ui-noteInput-textarea {
+	width: 500px;
+	height: 100px;
+	resize: none;
+}
+
+.ui-noteInput-btn {
+	margin-left: 20px;
+	height: 50px;
+	line-height: 35px;
+	width: 80px;
+	margin-bottom: 90px;
+	text-align: center;
+}

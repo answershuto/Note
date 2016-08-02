@@ -1,0 +1,16 @@
+{
+  "name": "note",
+  "version": "1.0.0",
+  "description": "a project based on react with flux",
+  "main": "app.js",
+  "scripts": {
+    "test": "./app.js"
+  },
+  "author": "cao yang",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "mongoose": "^4.5.7"
+  }
+}

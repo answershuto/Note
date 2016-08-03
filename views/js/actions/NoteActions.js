@@ -1,18 +1,27 @@
 var NoteConstants = require('../constants/NoteConstants');
+var NoteDispatcher = require('../dispatcher/NoteDispatcher');
+
 
 var NoteActionts = {
-	create: function(text){console.log(text)
+	create: function(text){
+		var dispatcher=function(isSuccess){
+			NoteDispatcher.dispatch({
+		      actionType: NoteConstants.NOTE_CREATE,
+		      isSuccess: isSuccess
+		    });
+		}
+
 		$.ajax({
 			type: 'post',
 			dataType: 'json',
 			url: "/note/create",
-			data: {'text':text,'aaa':'sss'},
+			data: {'text':text},
 			success: function(res){
-				console.log('res',res);
+				dispatcher(true);
 			},
 			async: true,
-			err: function(err){
-				alert('记录失败');
+			error: function(err){
+				dispatcher(false);
 			}
 		})
 	}

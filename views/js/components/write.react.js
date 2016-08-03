@@ -1,5 +1,6 @@
 var React = require('react');
 var NoteActions = require('../actions/NoteActions')
+var NoteStores = require('../stores/NoteStores')
 
 var NoteWrite = React.createClass({
 	
@@ -10,16 +11,28 @@ var NoteWrite = React.createClass({
 	},
 
 	componentDidMount: function(){
-		
+		NoteStores.addListener('click',this._onClick);
 	},
 
 	componentWillUnmount: function(){
-		
+		NoteStores.delListener('click',this._onClick);
+	},
+
+	_onClick: function(isSuccess){
+		this.setState({
+			value: ""
+		})
+		if (isSuccess) {
+
+		}
+		else{
+
+		}
 	},
 
 	render: function(){
 		return <div>
-			<textarea type="text" className="ui-noteInput-textarea" onChange={this.handleTextChange}></textarea>
+			<textarea type="text" className="ui-noteInput-textarea" onChange={this.handleTextChange} value={this.state.value}></textarea>
 			<a className="ui-noteInput-btn btn btn-success" onClick={this.handleClick}>记录</a>
 		</div>
 	},

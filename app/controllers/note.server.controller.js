@@ -20,15 +20,14 @@ module.exports = {
 	            	data[item.split('=')[0]] = item.split('=')[1];
 	            });
 
-	            console.log(data['text'])
+	            console.log(data['text']);
+
+	            res.status(200);
+				res.send('create successed');
 	        });
 
 
 		}
-
-		
-
-		res.send('create successed');
 		// var news = new News({
 		// 	title: "bbb",
 		// 	content: "content bbb"

@@ -23,10 +23,10 @@ var NoteWrite = React.createClass({
 			value: ""
 		})
 		if (isSuccess) {
-
+			alert('记录成果！');
 		}
 		else{
-
+			alert('记录失败！');
 		}
 	},
 

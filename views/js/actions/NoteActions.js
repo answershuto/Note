@@ -13,7 +13,6 @@ var NoteActionts = {
 
 		$.ajax({
 			type: 'post',
-			dataType: 'json',
 			url: "/note/create",
 			data: {'text':text},
 			success: function(res){

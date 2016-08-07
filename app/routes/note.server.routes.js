@@ -8,6 +8,6 @@ module.exports = function(app){
 	app.route('/note/create')
 		.post(NoteController.create);
 
-	app.route('/note/find')
-		.all(NoteController.find);
+	app.route('/note/queryAll')
+		.all(NoteController.queryAll);
 }

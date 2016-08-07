@@ -23,7 +23,7 @@ var NoteWrite = React.createClass({
 			value: ""
 		})
 		if (isSuccess) {
-			alert('记录成果！');
+			alert('记录成功！');
 		}
 		else{
 			alert('记录失败！');
@@ -31,7 +31,7 @@ var NoteWrite = React.createClass({
 	},
 
 	render: function(){
-		return <div>
+		return <div className="ui-noteInput-div">
 			<textarea type="text" className="ui-noteInput-textarea" onChange={this.handleTextChange} value={this.state.value}></textarea>
 			<a className="ui-noteInput-btn btn btn-success" onClick={this.handleClick}>记录</a>
 		</div>

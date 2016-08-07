@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Note = mongoose.model('Note');
 
+var Cfg = [];
 
 module.exports = {
 	create: function(req, res, next){
@@ -20,7 +21,14 @@ module.exports = {
 	            	data[item.split('=')[0]] = item.split('=')[1];
 	            });
 
-	            console.log(data['text']);
+	            var cfg = {
+	            	'Date': new Date().toLocaleString(),
+	            	'Text': data['text']
+	            }
+
+	            Cfg.push(cfg);
+	            console.log('save cfg:'+JSON.stringify(cfg)+' successed!');
+
 
 	            res.status(200);
 				res.send('create successed');
@@ -43,13 +51,7 @@ module.exports = {
 
 		//res.send('create!\n');
 	},
-	find: function(req,res,next){
-		News.find({},function(err,doc){
-			if (err) {
-				return next(err);
-			};
-
-			res.json(doc);
-		})
+	queryAll: function(req,res,next){
+		res.send(Cfg)
 	}
 }

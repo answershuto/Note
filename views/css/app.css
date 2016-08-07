@@ -14,3 +14,13 @@
 	margin-bottom: 90px;
 	text-align: center;
 }
+
+.ui-noteInput-div{
+	margin:0px auto;
+	width: 650px;
+}
+
+.ui-noteShow-div{
+	margin:0px auto;
+	width: 1000px;
+}

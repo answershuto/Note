@@ -1,18 +1,11 @@
 var NoteConstants = require('../constants/NoteConstants');
 var NoteDispatcher = require('../dispatcher/NoteDispatcher');
+var CommonJS = require('../../common')
 
 var timer = setInterval(function(){
-	$.ajax({
-		type: 'post',
-		url: "/note/queryAll",
-		success: function(res){
-			NoteActionts.show(res);
-		},
-		async: true,
-		error: function(err){
-			
-		}
-	})
+	CommonJS.ajax("/note/queryAll","post","",function(res){
+		NoteActionts.show(res);
+	});
 },1000)
 
 var NoteActionts = {
@@ -24,18 +17,13 @@ var NoteActionts = {
 		    });
 		}
 
-		$.ajax({
-			type: 'post',
-			url: "/note/create",
-			data: d,
-			success: function(res){
-				dispatcher(true);
-			},
-			async: true,
-			error: function(err){
-				dispatcher(false);
+		var ajaxFunc = function(ret){
+			return function(res){
+				dispatcher(ret);
 			}
-		})
+		}
+
+		CommonJS.ajax("/note/create",'post',JSON.stringify(d),ajaxFunc(true),ajaxFunc(false));
 	},
 	show: function(titles){
 		NoteDispatcher.dispatch({

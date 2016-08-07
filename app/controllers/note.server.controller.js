@@ -11,20 +11,18 @@ module.exports = {
 		}
 		else{
 			var data = {};
-			var body = '', jsonStr;
-	        req.on('data', function (chunk) {
+			var body = '';
+	        req.on('data', function (chunk) {console.log(chunk)
 	            body += chunk; //读取参数流转化为字符串
 	        });
 	        req.on('end', function () {
 	            //读取参数流结束后将转化的body字符串解析成 JSON 格式
-	            body.split('&').forEach(function(item,index){
-	            	data[item.split('=')[0]] = item.split('=')[1];
-	            });
+	            var dataObj = JSON.parse(body);
 
 	            var cfg = {
 	            	'Date': new Date().toLocaleString(),
-	            	'Title': data['title'],
-	            	'Text': data['value']
+	            	'Title': dataObj['title'],
+	            	'Text': dataObj['value']
 	            }
 
 	            Cfg.push(cfg);

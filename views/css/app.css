@@ -6,6 +6,11 @@
 	resize: none;
 }
 
+.ui-noteInput-input,.ui-noteInput-span {
+	margin-left: 30px;
+	margin-top: 10px;
+}
+
 .ui-noteInput-btn {
 	margin-left: 20px;
 	height: 50px;
@@ -23,4 +28,7 @@
 .ui-noteShow-div{
 	margin:0px auto;
 	width: 1000px;
+	height: 400px;
+	border-style: solid; 
+	border-width: 1px;
 }

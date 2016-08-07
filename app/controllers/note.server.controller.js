@@ -23,7 +23,8 @@ module.exports = {
 
 	            var cfg = {
 	            	'Date': new Date().toLocaleString(),
-	            	'Text': data['text']
+	            	'Title': data['title'],
+	            	'Text': data['value']
 	            }
 
 	            Cfg.push(cfg);

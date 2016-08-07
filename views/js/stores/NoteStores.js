@@ -21,6 +21,9 @@ NoteDispatcher.register(function(action){
 		case NoteConstants.NOTE_CREATE:
 			NoteStore.eventEmit('click',action.isSuccess);
 			break;
+		case NoteConstants.NOTE_TITLES:
+			NoteStore.eventEmit('show',action.titles);
+			break;
 		default:
 			break;
 	}

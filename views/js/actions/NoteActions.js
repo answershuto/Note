@@ -1,9 +1,22 @@
 var NoteConstants = require('../constants/NoteConstants');
 var NoteDispatcher = require('../dispatcher/NoteDispatcher');
 
+var timer = setInterval(function(){
+	$.ajax({
+		type: 'post',
+		url: "/note/queryAll",
+		success: function(res){
+			NoteActionts.show(res);
+		},
+		async: true,
+		error: function(err){
+			
+		}
+	})
+},1000)
 
 var NoteActionts = {
-	create: function(text){
+	create: function(d){
 		var dispatcher=function(isSuccess){
 			NoteDispatcher.dispatch({
 		      actionType: NoteConstants.NOTE_CREATE,
@@ -14,7 +27,7 @@ var NoteActionts = {
 		$.ajax({
 			type: 'post',
 			url: "/note/create",
-			data: {'text':text},
+			data: d,
 			success: function(res){
 				dispatcher(true);
 			},
@@ -23,6 +36,12 @@ var NoteActionts = {
 				dispatcher(false);
 			}
 		})
+	},
+	show: function(titles){
+		NoteDispatcher.dispatch({
+	      actionType: NoteConstants.NOTE_TITLES,
+	      titles: titles
+	    });
 	}
 }
 

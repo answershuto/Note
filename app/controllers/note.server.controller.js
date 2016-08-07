@@ -12,7 +12,7 @@ module.exports = {
 		else{
 			var data = {};
 			var body = '';
-	        req.on('data', function (chunk) {console.log(chunk)
+	        req.on('data', function (chunk) {
 	            body += chunk; //读取参数流转化为字符串
 	        });
 	        req.on('end', function () {

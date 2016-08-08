@@ -18,7 +18,18 @@ var NoteShow = React.createClass({
 
 	render: function(){
 		return <div className={this.props.bgClass}>
-			{this.props.text}
+			<div>
+				<span>时间：</span>
+				<span>{this.props.date}</span>
+			</div>
+			<div>
+				<span>标题：</span>
+				<span>{this.props.title}</span>
+			</div>
+			<div>
+				<span>内容：</span>
+				<span>{this.props.text}</span>
+			</div>
 		</div>
 	}
 })

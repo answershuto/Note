@@ -34,7 +34,7 @@ var NoteWrite = React.createClass({
 	},
 
 	render: function(){
-		return <div className="ui-noteInput-div">
+		return <div className="ui-noteInput-div ui-marginT-10">
 			<div>
 				<span className="ui-noteInput-span">标题</span>
 				<input className="ui-noteInput-input" type="text" onChange={this.handleTitleChange} value={this.state.title}></input>

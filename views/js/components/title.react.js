@@ -17,7 +17,7 @@ var NoteShow = React.createClass({
 	},
 
 	render: function(){
-		return <div>
+		return <div className={this.props.bgClass}>
 			{this.props.text}
 		</div>
 	}

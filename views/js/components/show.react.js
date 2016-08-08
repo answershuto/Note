@@ -3,6 +3,8 @@ var NoteActions = require('../actions/NoteActions')
 var NoteStores = require('../stores/NoteStores')
 var NoteTitle = require('./title.react')
 
+var bgClassName = ['bg-primary','bg-success','bg-info','bg-warning','bg-danger'];
+
 var NoteShow = React.createClass({
 	
 	getInitialState: function(){
@@ -28,7 +30,7 @@ var NoteShow = React.createClass({
 	render: function(){
 		var items = [];
 		this.state.titles.forEach(function(item,index){
-			items.push(<NoteTitle time={item.time} text={item.Text} />)
+			items.push(<NoteTitle time={item.time} text={item.Text} bgClass={bgClassName[index%bgClassName.length]} />)
 		})
 
 		return <div className="ui-noteShow-div">

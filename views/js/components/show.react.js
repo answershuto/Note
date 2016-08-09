@@ -29,8 +29,8 @@ var NoteShow = React.createClass({
 
 	render: function(){
 		var items = [];
-		this.state.titles.forEach(function(item,index){console.log(item.Date)
-			items.push(<NoteTitle date={item.Date} title={item.Title} text={item.Text} bgClass={bgClassName[index%bgClassName.length]} />)
+		this.state.titles.forEach(function(item,index){
+			items.push(<NoteTitle date={item.localTime} title={item.title} text={item.text} bgClass={bgClassName[index%bgClassName.length]} />)
 		})
 
 		return <div className="ui-noteShow-div">

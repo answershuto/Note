@@ -1,8 +1,10 @@
 var mongoose = require('mongoose');
 
 var Schema = new mongoose.Schema({
-	text: String,
-	date: {type:Date,default:Date.now}
+	date: {type:Date,default:Date.now},
+	localTime: String,
+	title: String,
+	text: String
 })
 
 var News = mongoose.model('Note', Schema);

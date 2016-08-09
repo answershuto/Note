@@ -20,17 +20,25 @@ module.exports = {
 	            var dataObj = JSON.parse(body);
 
 	            var cfg = {
-	            	'Date': new Date().toLocaleString(),
-	            	'Title': dataObj['title'],
-	            	'Text': dataObj['value']
+	            	localTime: new Date().toLocaleString(),
+	            	title: dataObj['title'],
+	            	text: dataObj['value']
 	            }
 
-	            Cfg.push(cfg);
-	            console.log('save cfg:'+JSON.stringify(cfg)+' successed!');
-
-
-	            res.status(200);
-				res.send('create successed');
+	            var note = new Note(cfg);
+	            note.save(function(err){
+	            	if (err) {
+	            		console.log('err',err);
+	            		return next(err);
+	            	}
+	            	else{
+	            		console.log('save cfg:'+JSON.stringify(cfg)+' successed!');
+	            		res.status(200);
+						res.send('create successed');
+	            	}
+	            })
+	            
+	            
 	        });
 
 
@@ -51,6 +59,11 @@ module.exports = {
 		//res.send('create!\n');
 	},
 	queryAll: function(req,res,next){
-		res.send(Cfg)
+		Note.find({},function(err,doc){
+			if (err) {
+				return next(err);
+			};
+			res.json(doc);
+		})
 	}
 }

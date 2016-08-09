@@ -1,8 +1,6 @@
 var mongoose = require('mongoose');
 var Note = mongoose.model('Note');
 
-var Cfg = [];
-
 module.exports = {
 	create: function(req, res, next){
 
@@ -43,20 +41,6 @@ module.exports = {
 
 
 		}
-		// var news = new News({
-		// 	title: "bbb",
-		// 	content: "content bbb"
-		// });
-		
-		// news.save(function(err){
-		// 	if (err) {
-		// 		return next(err);
-		// 	};
-
-		// 	res.json(news);
-		// });
-
-		//res.send('create!\n');
 	},
 	queryAll: function(req,res,next){
 		Note.find({},function(err,doc){

@@ -8,7 +8,6 @@ module.exports = {
 			console.log(req.body.text)
 		}
 		else{
-			var data = {};
 			var body = '';
 	        req.on('data', function (chunk) {
 	            body += chunk; //读取参数流转化为字符串
@@ -49,5 +48,24 @@ module.exports = {
 			};
 			res.json(doc);
 		})
+	},
+	delete: function(req,res,next){
+		var body = '';
+        req.on('data', function (chunk) {
+            body += chunk; //读取参数流转化为字符串
+        });
+        req.on('end', function(){
+        	Note.remove({localTime: body},function(err){
+        		if (err) {
+        			console.log('err',err);
+	            	return next(err);
+        		}
+        		else{
+        			console.log('delete {localTime:'+body+'} successed!');
+        			res.status(200);
+        			res.send('delete successed');
+        		}
+        	})
+        })
 	}
 }

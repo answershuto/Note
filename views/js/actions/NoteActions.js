@@ -30,6 +30,15 @@ var NoteActionts = {
 	      actionType: NoteConstants.NOTE_TITLES,
 	      titles: titles
 	    });
+	},
+	delete: function(date){
+		CommonJS.ajax("/note/delete","post",date,function(){
+			NoteDispatcher.dispatch({
+		      actionType: NoteConstants.NOTE_DELETE
+		    });
+		})
+
+		
 	}
 }
 

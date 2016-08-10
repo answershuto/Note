@@ -1,4 +1,5 @@
 var React = require('react');
+var NoteActions = require('../actions/NoteActions')
 
 var NoteShow = React.createClass({
 	
@@ -32,9 +33,13 @@ var NoteShow = React.createClass({
 					<span>{this.props.text}</span>
 				</div>
 			</div>
-			<div className="ui-del-div ui-float-right glyphicon glyphicon-remove"></div>
+			<div className="ui-del-div ui-float-right glyphicon glyphicon-trash" onClick={this.handleDelClick.bind(this)}></div>
 			<div className="ui-clear-both"></div>
 		</div>
+	},
+
+	handleDelClick: function(){
+		NoteActions.delete(this.props.date);
 	}
 })
 

@@ -24,6 +24,8 @@ NoteDispatcher.register(function(action){
 		case NoteConstants.NOTE_TITLES:
 			NoteStore.eventEmit('show',action.titles);
 			break;
+		case NoteConstants.NOTE_DELETE:
+			break;
 		default:
 			break;
 	}

@@ -10,4 +10,7 @@ module.exports = function(app){
 
 	app.route('/note/queryAll')
 		.all(NoteController.queryAll);
+
+	app.route('/note/delete')
+		.post(NoteController.delete);
 }

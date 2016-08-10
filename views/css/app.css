@@ -43,10 +43,32 @@
 	clear: both;
 }
 
+.ui-float-left{
+	float: left;
+}
+
+.ui-float-right{
+	float: right;
+}
+
 .ui-marginB-20{
 	margin-bottom: 20px;
 }
 
 .ui-marginT-10{
 	margin-top: 10px;
+}
+
+.ui-width-100{
+	width: 100px;
+}
+
+.ui-width-900{
+	width: 900px;
+}
+
+.ui-del-div{
+	margin-right: 10px;
+	margin-top: 10px;
+	cursor: pointer;
 }

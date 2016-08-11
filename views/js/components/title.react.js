@@ -33,13 +33,20 @@ var NoteShow = React.createClass({
 					<span>{this.props.text}</span>
 				</div>
 			</div>
-			<div className="ui-del-div ui-float-right glyphicon glyphicon-trash" onClick={this.handleDelClick.bind(this)}></div>
+			<div className="ui-float-right">
+				<div className="ui-del-div glyphicon glyphicon-trash" onClick={this.handleDelClick.bind(this)}></div>
+				<div className="ui-modify-div glyphicon glyphicon-pencil" onClick={this.handleModifyClick.bind(this)}></div>
+			</div>
 			<div className="ui-clear-both"></div>
 		</div>
 	},
 
 	handleDelClick: function(){
 		NoteActions.delete(this.props.date);
+	},
+
+	handleModifyClick: function(){
+		NoteActions.modify();
 	}
 })
 

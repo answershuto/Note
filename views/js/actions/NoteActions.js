@@ -2,11 +2,13 @@ var NoteConstants = require('../constants/NoteConstants');
 var NoteDispatcher = require('../dispatcher/NoteDispatcher');
 var CommonJS = require('../../common')
 
-var timer = setInterval(function(){
+var refreshFunc = function(){
 	CommonJS.ajax("/note/queryAll","post","",function(res){
 		NoteActionts.show(res);
 	});
-},1000)
+}
+
+var timer = setInterval(refreshFunc,1000)
 
 var NoteActionts = {
 	create: function(d){
@@ -32,12 +34,9 @@ var NoteActionts = {
 	    });
 	},
 	delete: function(date){
-		CommonJS.ajax("/note/delete","post",date,function(){
-			NoteDispatcher.dispatch({
-		      actionType: NoteConstants.NOTE_DELETE
-		    });
-		})
-
+		CommonJS.ajax("/note/delete","post",date,refreshFunc);
+	},
+	modify: function(){
 		
 	}
 }

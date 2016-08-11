@@ -67,8 +67,9 @@
 	width: 900px;
 }
 
-.ui-del-div{
+.ui-del-div,.ui-modify-div{
 	margin-right: 10px;
 	margin-top: 10px;
 	cursor: pointer;
+	display: block;
 }

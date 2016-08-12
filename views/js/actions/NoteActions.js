@@ -37,7 +37,7 @@ var NoteActionts = {
 		CommonJS.ajax("/note/delete","post",date,refreshFunc);
 	},
 	modify: function(){
-		
+		CommonJS.ajax("/note/modify","post","");
 	}
 }
 

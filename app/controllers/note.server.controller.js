@@ -41,6 +41,7 @@ module.exports = {
 
 		}
 	},
+
 	queryAll: function(req,res,next){
 		Note.find({},function(err,doc){
 			if (err) {
@@ -49,6 +50,7 @@ module.exports = {
 			res.json(doc);
 		})
 	},
+
 	delete: function(req,res,next){
 		var body = '';
         req.on('data', function (chunk) {
@@ -67,5 +69,11 @@ module.exports = {
         		}
         	})
         })
+	},
+
+	modify: function(req,res,next){console.log('modify')
+		Note.findByTitle('test',function(err,d){
+			console.log(d)
+		})
 	}
 }

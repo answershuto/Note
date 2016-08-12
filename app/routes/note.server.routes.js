@@ -13,4 +13,7 @@ module.exports = function(app){
 
 	app.route('/note/delete')
 		.post(NoteController.delete);
+
+	app.route('/note/modify')
+		.post(NoteController.modify)
 }

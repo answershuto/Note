@@ -73,3 +73,11 @@
 	cursor: pointer;
 	display: block;
 }
+
+.ui-display-none{
+	display: none;
+}
+
+.ui-display-inline{
+	display: inline;
+}

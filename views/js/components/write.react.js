@@ -48,6 +48,15 @@ var NoteWrite = React.createClass({
 	},
 
 	handleClick: function(){
+		if (this.state.title === "") {
+			alert('标题不能为空');
+			return;
+		}
+		else if (this.state.value === "") {
+			alert('内容不能为空');
+			return;
+		};
+
 		NoteActions.create(this.state);
 	},
 

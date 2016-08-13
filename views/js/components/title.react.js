@@ -13,6 +13,7 @@ var NoteShow = React.createClass({
 	
 	getInitialState: function(){
 		return {
+			_id:this.props._id,
 			modifyStatus: COMMON,
 			title: this.props.title || "",
 			date: this.props.date || "",
@@ -25,7 +26,12 @@ var NoteShow = React.createClass({
 	},
 
 	componentWillReceiveProps: function(newProps){/*组件更新props时候更新state*/
-		this.setState(update(this.state,{title:{$set: newProps.title},date:{$set: newProps.date},text:{$set: newProps.text}}));
+		this.setState(update(this.state,{
+			title:{$set: newProps.title},
+			date:{$set: newProps.date},
+			text:{$set: newProps.text},
+			_id:{$set: newProps._id}
+		}));
 	},
 
 	componentWillUnmount: function(){
@@ -76,7 +82,7 @@ var NoteShow = React.createClass({
 		}
 		else{/*保存*/
 			this.setState(update(this.state,{modifyStatus:{$set: COMMON}}));
-			NoteActions.modify();
+			NoteActions.modify(this.state);
 		}
 	}
 })

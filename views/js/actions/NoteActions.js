@@ -10,7 +10,7 @@ var refreshFunc = function(){
 }
 refreshFunc();/*第一次加载页面直接刷新*/
 
-var timer = setInterval(refreshFunc,refreshTime);/*启定时器轮训*/
+//var timer = setInterval(refreshFunc,refreshTime);/*启定时器轮训*/
 
 var NoteActionts = {
 	create: function(d){
@@ -42,8 +42,8 @@ var NoteActionts = {
 	delete: function(date){
 		CommonJS.ajax("/note/delete","post",date,refreshFunc);
 	},
-	modify: function(){
-		CommonJS.ajax("/note/modify","post","",refreshFunc);
+	modify: function(date){
+		CommonJS.ajax("/note/modify","post",JSON.stringify(date),refreshFunc);
 	}
 }
 

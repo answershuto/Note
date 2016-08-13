@@ -71,9 +71,28 @@ module.exports = {
         })
 	},
 
-	modify: function(req,res,next){console.log('modify')
-		Note.findByTitle('test',function(err,d){
-			console.log(d)
-		})
+	modify: function(req,res,next){
+		var body = '';
+        req.on('data', function (chunk) {
+            body += chunk; //读取参数流转化为字符串
+        });
+        req.on('end', function(){
+        	var dataObj = JSON.parse(body);
+
+        	Note.findById(dataObj._id,function(err,d){
+				d.title = dataObj.title;
+				d.text = dataObj.text;
+
+				d.save(function(err){
+					if (err) {
+						res.send('modify err!'+err);
+					}
+					else{
+						res.send('modify successed!');
+					}
+				})
+			})
+        })
+		
 	}
 }

@@ -24,6 +24,10 @@ var NoteShow = React.createClass({
 		
 	},
 
+	componentWillReceiveProps: function(){/*组件更新props时候更新state*/
+		this.setState(update(this.state,{title:{$set: this.props.title},date:{$set: this.props.date},text:{$set: this.props.text}}));
+	},
+
 	componentWillUnmount: function(){
 		
 	},

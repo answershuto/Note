@@ -3,7 +3,7 @@ var Note = mongoose.model('Note');
 
 module.exports = {
 	create: function(req, res, next){
-
+		
 		if (req.body.text) {
 			console.log(req.body.text)
 		}

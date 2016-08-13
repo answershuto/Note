@@ -2,13 +2,15 @@ var NoteConstants = require('../constants/NoteConstants');
 var NoteDispatcher = require('../dispatcher/NoteDispatcher');
 var CommonJS = require('../../common')
 
+const refreshTime = 1000 * 10;
 var refreshFunc = function(){
 	CommonJS.ajax("/note/queryAll","post","",function(res){
 		NoteActionts.show(res);
 	});
 }
+refreshFunc();/*第一次加载页面直接刷新*/
 
-var timer = setInterval(refreshFunc,1000)
+var timer = setInterval(refreshFunc,refreshTime);/*启定时器轮训*/
 
 var NoteActionts = {
 	create: function(d){
@@ -37,7 +39,7 @@ var NoteActionts = {
 		CommonJS.ajax("/note/delete","post",date,refreshFunc);
 	},
 	modify: function(){
-		CommonJS.ajax("/note/modify","post","");
+		CommonJS.ajax("/note/modify","post","",refreshFunc);
 	}
 }
 

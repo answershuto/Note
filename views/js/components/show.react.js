@@ -22,11 +22,9 @@ var NoteShow = React.createClass({
 	},
 
 	_onShow: function(titles){
-		if (titles !== this.state.titles) {
-			this.setState({
-				titles: titles
-			})
-		};
+		this.setState({
+			titles: titles
+		})
 	},
 
 	render: function(){

@@ -19,6 +19,10 @@ var NoteActionts = {
 		      actionType: NoteConstants.NOTE_CREATE,
 		      isSuccess: isSuccess
 		    });
+
+		    if (isSuccess) {
+		    	refreshFunc();
+		    };
 		}
 
 		var ajaxFunc = function(ret){

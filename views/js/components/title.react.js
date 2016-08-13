@@ -38,20 +38,28 @@ var NoteShow = React.createClass({
 				<div>
 					<span>标题：</span>
 					<span className={SPAN_CLASS[this.state.modifyStatus]}>{this.state.title}</span>
-					<input className={INPUT_CLASS[this.state.modifyStatus]} type="text" value={this.state.title}></input>
+					<input className={INPUT_CLASS[this.state.modifyStatus]} type="text" value={this.state.title} onChange={this.handleTitleModifyChange}></input>
 				</div>
 				<div>
 					<span>内容：</span>
 					<span className={SPAN_CLASS[this.state.modifyStatus]}>{this.state.text}</span>
-					<input className={INPUT_CLASS[this.state.modifyStatus]} type="text" value={this.state.text}></input>
+					<input className={INPUT_CLASS[this.state.modifyStatus]} type="text" value={this.state.text} onChange={this.handleTextModifyChange}></input>
 				</div>
 			</div>
 			<div className="ui-float-right">
-				<div className="ui-del-div glyphicon glyphicon-trash" onClick={this.handleDelClick.bind(this)}></div>
+				<div className="ui-del-div glyphicon glyphicon-trash" onClick={this.handleDelClick}></div>
 				<div className={MODIFY_CLASS[this.state.modifyStatus]+" glyphicon ui-modify-div"} onClick={this.handleModifyClick}></div>
 			</div>
 			<div className="ui-clear-both"></div>
 		</div>
+	},
+
+	handleTitleModifyChange: function(e){
+		this.setState(update(this.state,{title:{$set: e.target.value}}));
+	},
+
+	handleTextModifyChange: function(e){
+		this.setState(update(this.state,{text:{$set: e.target.value}}));
 	},
 
 	handleDelClick: function(){

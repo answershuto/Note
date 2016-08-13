@@ -4,7 +4,7 @@ var CommonJS = require('../../common')
 
 const refreshTime = 1000 * 10;
 var refreshFunc = function(){
-	CommonJS.ajax("/note/queryAll","post","",function(res){
+	CommonJS.ajax("/note/queryAll","post",{},function(res){
 		NoteActionts.show(res);
 	});
 }
@@ -31,7 +31,7 @@ var NoteActionts = {
 			}
 		}
 
-		CommonJS.ajax("/note/create",'post',JSON.stringify(d),ajaxFunc(true),ajaxFunc(false));
+		CommonJS.ajax("/note/create",'post', d,ajaxFunc(true),ajaxFunc(false));
 	},
 	show: function(titles){
 		NoteDispatcher.dispatch({
@@ -40,10 +40,10 @@ var NoteActionts = {
 	    });
 	},
 	delete: function(date){
-		CommonJS.ajax("/note/delete","post",date,refreshFunc);
+		CommonJS.ajax("/note/delete","post",{'localTime':date},refreshFunc);
 	},
 	modify: function(date){
-		CommonJS.ajax("/note/modify","post",JSON.stringify(date),refreshFunc);
+		CommonJS.ajax("/note/modify","post",date,refreshFunc);
 	}
 }
 

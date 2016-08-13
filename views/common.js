@@ -1,14 +1,14 @@
 module.exports = {
-	ajax: function(url,type,data,sucFunc,errFunc){
+	ajax: function(url,type,data,sucFunc,errFunc,async){
 		if (!url) return;
 
 		$.ajax({
 			'type': type || 'post',
 			'url': url,
-			'contentType':'text/html;charset=utf-8',
-			'data':data,
+			'contentType': 'application/json;charset=utf-8',
+			'data': JSON.stringify(data),
 			success: sucFunc || jQuery.noop(),
-			async: true,
+			async: async || true,
 			error: errFunc || jQuery.noop()
 		})
 	}

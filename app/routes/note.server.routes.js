@@ -6,14 +6,14 @@ module.exports = function(app){
 			res.render('index.html');
 		});
 	app.route('/note/create')
-		.post(NoteController.create);
+		.all(NoteController.create);
 
 	app.route('/note/queryAll')
 		.all(NoteController.queryAll);
 
 	app.route('/note/delete')
-		.post(NoteController.delete);
+		.all(NoteController.delete);
 
 	app.route('/note/modify')
-		.post(NoteController.modify)
+		.all(NoteController.modify)
 }

@@ -23,12 +23,12 @@ var Login = React.createClass({
 			<div className="ui-login-img">
 				<img className="img-circle" src="../../image/defaultHeadPortrait.png">
 			</img></div>
-			<h2>欢迎登陆</h2>
+			<h2>欢迎使用</h2>
 			<input type="text" className="form-control" placeholder="用户名" autofocus></input>
 			<input type="text" className="form-control" placeholder="密码"></input>
 			<div>
 				<span>没有账号？</span>
-				<a>立即注册</a>
+				<a href="html/register.html">立即注册</a>
 				<a className="ui-float-right">忘记密码</a>
 			</div>
 			<botton className="btn btn-lg btn-warning btn-block">登陆</botton>

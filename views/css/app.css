@@ -112,3 +112,38 @@ body{
 	margin: 0px auto;
 	width: 100px;
 }
+
+.ui-register-div{
+	margin: 100px auto;
+	width: 300px;
+}
+
+.form-inline div div{
+	width: 80px;
+	margin-top: 3px;
+}
+
+.form-inline div div i{
+	color: red;
+}
+
+.form-inline div input{
+	width: 200px;
+}
+
+.form-inline div{
+	margin-top: 25px;
+}
+
+.form-inline div div{
+	float: left;
+}
+
+.ui-tips{
+	clear: both;
+}
+
+.ui-register-submit{
+	width: 200px;
+	margin-left: 80px;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+
+  <title>用户注册</title> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, user-scalable=no" />
+  <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- 可选的Bootstrap主题文件（一般不使用） -->
+  <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap-theme.min.css"></script>
+  <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+  <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <!-- 自己的css文件 -->
+  <link href="../css/app.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body> 
+
+  <div class="ui-register-div" role="form">
+    <form class="form-inline" action="/note/register" mothod="post">
+
+      <div>
+        <div>
+          <i>*</i>
+          用户名：
+        </div>
+        <input type="text" className="form-control" placeholder="用户名" autofocus></input>
+      </div>
+
+      <div>
+        <div>
+          <i>*</i>
+          密码：
+        </div>
+        <input type="password" className="form-control" placeholder="密码"></input>
+      </div>
+
+      <div>
+        <div>
+          <i>*</i>
+          邮箱：
+        </div>
+        <input type="text" className="form-control" placeholder="邮箱"></input>
+      </div>
+
+      <div class="ui-register-submit">
+        <button type="submit" class="btn btn-default" style="width:100%;">注册</button>
+      </div>
+
+    </form>
+  </div>
+
+</body>
+  
+</html>

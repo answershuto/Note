@@ -57,6 +57,7 @@ module.exports = {
 				}
 				else{
 					console.log('modify ' + JSON.stringify(d) + 'successed!');
+					res.status(200);
 					res.send('modify successed!');
 				}
 			})

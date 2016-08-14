@@ -81,3 +81,34 @@
 .ui-display-inline{
 	display: inline;
 }
+
+.ui-form-login{
+	max-width: 350px;
+	margin: 0 auto;
+	padding: 15px;
+}
+
+.ui-form-login input{
+	margin-bottom: 7px;
+}
+
+.ui-form-login a{
+	cursor: pointer;
+}
+
+#userLogin{
+	height: 100%;
+	width: 100%;
+}
+
+body{
+	width: 100%;
+	height: 100%;
+	background-image: url("../../image/background.png");
+	background-repeat: no-repeat;
+}
+
+.ui-login-img{
+	margin: 0px auto;
+	width: 100px;
+}

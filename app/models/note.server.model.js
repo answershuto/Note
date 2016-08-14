@@ -8,3 +8,11 @@ var Schema = new mongoose.Schema({
 })
 
 var News = mongoose.model('Note', Schema);
+
+var SchemaUser = new mongoose.Schema({
+	userName: String,
+	passWord: String,
+	eMail: String
+})
+
+var Users = mongoose.model('Users', SchemaUser);

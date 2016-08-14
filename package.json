@@ -11,6 +11,8 @@
   "dependencies": {
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
-    "mongoose": "^4.5.7"
+    "fs": "0.0.2",
+    "mongoose": "^4.5.7",
+    "querystring": "^0.2.0"
   }
 }

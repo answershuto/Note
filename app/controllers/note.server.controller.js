@@ -1,5 +1,8 @@
 var mongoose = require('mongoose');
 var Note = mongoose.model('Note');
+var Users = mongoose.model('Users');
+var qs = require('querystring');
+var fs = require('fs');
 
 module.exports = {
 	create: function(req, res, next){
@@ -63,5 +66,30 @@ module.exports = {
 			})
 		})
 		
+	},
+
+	register: function(req,res,next){
+		var data="";
+        req.on("data",function(postdata){
+            data+=postdata; 
+        });
+        req.on("end",function(){
+            obj = qs.parse(data);
+
+            var user = new Users(obj);
+            user.save(function(err){
+            	if (err) {
+            		console.log('register err!');
+            		res.send('register err!');
+            		return next(err);
+            	}
+            	else{
+            		console.log('register '+ JSON.stringify(obj) +' successed!');
+            		res.send('<span>注册成功，</span><a href="/index.html">点击这里</a><span>跳转...</span>');
+            	}
+            })
+
+            
+        });
 	}
 }

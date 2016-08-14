@@ -15,5 +15,8 @@ module.exports = function(app){
 		.all(NoteController.delete);
 
 	app.route('/note/modify')
-		.all(NoteController.modify)
+		.all(NoteController.modify);
+
+	app.route('/note/register')
+		.all(NoteController.register);
 }

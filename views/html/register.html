@@ -20,14 +20,14 @@
 <body> 
 
   <div class="ui-register-div" role="form">
-    <form class="form-inline" action="/note/register" mothod="post">
+    <form class="form-inline" action="/note/register" method="post">
 
       <div>
         <div>
           <i>*</i>
           用户名：
         </div>
-        <input type="text" className="form-control" placeholder="用户名" autofocus></input>
+        <input name="userName" type="text" className="form-control" placeholder="用户名" autofocus></input>
       </div>
 
       <div>
@@ -35,7 +35,7 @@
           <i>*</i>
           密码：
         </div>
-        <input type="password" className="form-control" placeholder="密码"></input>
+        <input name="passWord" type="password" className="form-control" placeholder="密码"></input>
       </div>
 
       <div>
@@ -43,7 +43,7 @@
           <i>*</i>
           邮箱：
         </div>
-        <input type="text" className="form-control" placeholder="邮箱"></input>
+        <input name="eMail" type="text" className="form-control" placeholder="邮箱"></input>
       </div>
 
       <div class="ui-register-submit">
@@ -51,6 +51,7 @@
       </div>
 
     </form>
+    <iframe name="registerIframe" style="display:none;"></iframe>
   </div>
 
 </body>

@@ -25,7 +25,7 @@ var Login = React.createClass({
 			<div className="ui-login-img">
 				<img className="img-circle" src="../../image/defaultHeadPortrait.png">
 			</img></div>
-			<h2>欢迎使用</h2>
+			<h2 className="ui-center">欢迎使用</h2>
 			<input type="text" className="form-control" value={this.state.userName} onChange={this.handleUserNameChange} placeholder="用户名" autofocus></input>
 			<input type="password" className="form-control" value={this.state.password} onChange={this.handlePasswordChange} placeholder="密码"></input>
 			<div>

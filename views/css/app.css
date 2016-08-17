@@ -147,3 +147,7 @@ body{
 	width: 200px;
 	margin-left: 80px;
 }
+
+.ui-center{
+	text-align:center;
+}

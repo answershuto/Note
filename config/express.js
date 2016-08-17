@@ -1,5 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
 
 module.exports = function(){
 	console.log('init express..');
@@ -9,6 +11,15 @@ module.exports = function(){
 	app.use(express.static(__dirname+'/../views'));
 
 	app.use(bodyParser.json());
+
+	app.use(cookieParser());
+
+	app.use(session({
+		resave: false,
+		saveUninitialized: true,
+		secret: 'CloudNte',
+		name: 'RanMoCloudNote'
+	}));
 
 	require('../app/routes/note.server.routes')(app);
 
@@ -35,6 +46,7 @@ module.exports = function(){
 			console.error('500 set header after send.')
 		}
 	});
+	
 
 	return app;
 };

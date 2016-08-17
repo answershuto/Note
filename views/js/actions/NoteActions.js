@@ -46,6 +46,13 @@ var NoteActionts = {
 		CommonJS.ajax("/note/modify","post",date,refreshFunc);
 	},
 	login: function(date){
+		var dispatcher = function(isSuccess){
+			NoteDispatcher.dispatch({
+		      actionType: NoteConstants.NOTE_LOGIN,
+		      isSuccess: isSuccess
+		    });
+		}
+
 		CommonJS.ajax("/note/login","post",date, function(res){
 			console.log(res)
 		});

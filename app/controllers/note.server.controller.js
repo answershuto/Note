@@ -101,7 +101,8 @@ module.exports = {
 			}
 			else{
 				if ((result.length !== 0) && (result[0].passWord === req.body.Password)) {
-					res.send('login successed')
+					res.send(req.body.UserName+'login successed');
+					req.session.user = {'username': req.body.UserName};
 				}
 				else{
 					console.log('9s')

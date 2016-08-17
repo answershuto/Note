@@ -19,4 +19,7 @@ module.exports = function(app){
 
 	app.route('/note/register')
 		.all(NoteController.register);
+
+	app.route('/note/login')
+		.all(NoteController.login)
 }

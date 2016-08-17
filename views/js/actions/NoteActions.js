@@ -44,6 +44,11 @@ var NoteActionts = {
 	},
 	modify: function(date){
 		CommonJS.ajax("/note/modify","post",date,refreshFunc);
+	},
+	login: function(date){
+		CommonJS.ajax("/note/login","post",date, function(res){
+			console.log(res)
+		});
 	}
 }
 

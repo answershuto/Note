@@ -91,5 +91,22 @@ module.exports = {
 
             
         });
+	},
+
+	login: function(req,res,next){
+		Users.find({userName:req.body.UserName},{userName:1,passWord:1,eMail:1},{},function(err,result){
+			if (err) {
+				console.log('login find err!');
+				return next(err);
+			}
+			else{
+				if ((result.length !== 0) && (result[0].passWord === req.body.Password)) {
+					res.send('login successed')
+				}
+				else{
+					console.log('9s')
+				}
+			}
+		})
 	}
 }

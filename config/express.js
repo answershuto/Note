@@ -21,6 +21,17 @@ module.exports = function(){
 		name: 'RanMoCloudNote'
 	}));
 
+	app.use(function(req,res,next){
+		if (!req.session.user) {
+			if (req.url === '/note/login') {
+				next();/*请求为登陆则不需要校验session*/
+			};
+		}
+		else if (req.session.user) {
+			next();
+		};
+	})
+
 	require('../app/routes/note.server.routes')(app);
 
 	app.use(function(req, res, next){

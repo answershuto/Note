@@ -26,6 +26,9 @@ NoteDispatcher.register(function(action){
 			break;
 		case NoteConstants.NOTE_DELETE:
 			break;
+		case NoteConstants.NOTE_LOGIN:
+			NoteStore.eventEmit('login',action.isSuccess);
+			break;
 		default:
 			break;
 	}

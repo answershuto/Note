@@ -54,7 +54,7 @@ var NoteActionts = {
 		}
 
 		CommonJS.ajax("/note/login","post",date, function(res){
-			console.log(res)
+			dispatcher(res.indexOf('success') >= 0);
 		});
 	}
 }

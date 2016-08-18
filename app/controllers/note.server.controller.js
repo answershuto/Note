@@ -105,7 +105,7 @@ module.exports = {
 					req.session.user = {'username': req.body.UserName};
 				}
 				else{
-					console.log('9s')
+					res.send('login failed');
 				}
 			}
 		})

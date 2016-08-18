@@ -7,8 +7,8 @@ React.render(
 	document.getElementById('userLogin')
 )
 
-/*
+
 React.render(
   <Note />,
   document.getElementById('noteApp')
-);*/
+);

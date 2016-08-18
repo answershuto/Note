@@ -8,20 +8,21 @@ var Login = React.createClass({
 	getInitialState: function(){
 		return {
 			UserName: "",
-			Password: ""
+			Password: "",
+			divClassName: "ui-form-login"
 		};
 	},
 
 	componentDidMount: function(){
-		
+		NoteStores.addListener('login',this.onLogin);
 	},
 
 	componentWillUnmount: function(){
-		
+		NoteStores.delListener('login',this.onLogin);
 	},
 
 	render: function(){
-		return <div className="ui-form-login" style={{marginTop: $(window).height() / 5}}>
+		return <div className={this.state.divClassName} style={{marginTop: $(window).height() / 5}}>
 			<div className="ui-login-img">
 				<img className="img-circle" src="../../image/defaultHeadPortrait.png">
 			</img></div>
@@ -35,6 +36,15 @@ var Login = React.createClass({
 			</div>
 			<botton className="btn btn-lg btn-warning btn-block" onClick={this.handleLoginClick}>登陆</botton>
 		</div>
+	},
+
+	onLogin: function(isSuccess){
+		if (isSuccess) {
+			this.setState(update(this.state,{divClassName:{$set: 'ui-display-none'}}));
+		}
+		else{
+			alert('用户名或者密码错误');
+		}
 	},
 
 	handleUserNameChange: function(e){

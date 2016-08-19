@@ -8,6 +8,7 @@ module.exports = {
 	create: function(req, res, next){
 		var cfg = {
         	localTime: new Date().toLocaleString(),
+        	userName: req.session.user.userName,
         	title: req.body.title,
         	text: req.body.value
         }
@@ -27,7 +28,7 @@ module.exports = {
 	},
 
 	queryAll: function(req,res,next){
-		Note.find({},function(err,doc){
+		Note.find({userName:req.session.user.userName},function(err,doc){
 			if (err) {
 				return next(err);
 			};
@@ -36,13 +37,17 @@ module.exports = {
 	},
 
 	delete: function(req,res,next){
-		Note.remove(req.body,function(err){
+		var delObj = {
+			userName: req.session.user.userName,
+			localTime: req.body.localTime
+		}
+		Note.remove(delObj,function(err){
     		if (err) {
     			console.log('err',err);
             	return next(err);
     		}
     		else{
-    			console.log('delete ' + JSON.stringify(req.body) + 'successed!');
+    			console.log('delete ' + JSON.stringify(delObj) + 'successed!');
     			res.status(200);
     			res.send('delete successed');
     		}
@@ -53,6 +58,13 @@ module.exports = {
 		Note.findById(req.body._id,function(err,d){
 			d.title = req.body.title;
 			d.text = req.body.text;
+			console.log(d.userName,req.session.user.userName)
+			if (req.session.user.userName !== req.session.user.userName) {
+				/*如果用户对应不上直接返回错误*/
+				console.log('modify user err!');
+				res.send('modify failed!');
+				return;
+			};
 
 			d.save(function(err){
 				if (err) {
@@ -101,7 +113,7 @@ module.exports = {
 			}
 			else{
 				if ((result.length !== 0) && (result[0].passWord === req.body.Password)) {
-					req.session.user = {'username': req.body.UserName};
+					req.session.user = {'userName': req.body.UserName};
 					res.send(req.body.UserName+'login successed');
 				}
 				else{

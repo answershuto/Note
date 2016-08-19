@@ -8,7 +8,6 @@ var refreshFunc = function(){
 		NoteActionts.show(res);
 	});
 }
-refreshFunc();/*第一次加载页面直接刷新*/
 
 //var timer = setInterval(refreshFunc,refreshTime);/*启定时器轮训*/
 
@@ -51,6 +50,10 @@ var NoteActionts = {
 		      actionType: NoteConstants.NOTE_LOGIN,
 		      isSuccess: isSuccess
 		    });
+
+		    if (isSuccess) {
+		    	refreshFunc();/*第一次加载页面直接刷新*/
+		    };
 		}
 
 		CommonJS.ajax("/note/login","post",date, function(res){

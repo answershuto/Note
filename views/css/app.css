@@ -59,6 +59,10 @@
 	margin-top: 10px;
 }
 
+.ui-marginL-15{
+	margin-left: 15px;
+}
+
 .ui-width-100{
 	width: 100px;
 }
@@ -151,3 +155,32 @@ body{
 .ui-center{
 	text-align:center;
 }
+
+.ui-user-head{
+	width: 50px;
+	height: 50px;
+	margin-top: 10px;
+
+}
+
+.ui-user-body{
+	height: 80px;
+	background-color: black;
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

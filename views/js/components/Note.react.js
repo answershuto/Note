@@ -1,6 +1,5 @@
 var React = require('react');
 var NoteWrite = require('./write.react');
-var NoteShow = require('./show.react');
 var Home = require('./Home.react');
 var NoteStores = require('../stores/NoteStores');
 var update = require('react-addons-update');
@@ -27,7 +26,6 @@ var NoteApp = React.createClass({
 
 		/*
 			<NoteWrite />
-			<NoteShow />
 		*/
 	},
 

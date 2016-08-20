@@ -39,7 +39,7 @@ var User = React.createClass({
 					</div>
 				</div>
 				<div className="col-md-2 col-xs-2">
-					
+					<div className="glyphicon glyphicon-cog ui-home-setup"></div>
 				</div>
 			</div>
 		</div>

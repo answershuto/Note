@@ -14,10 +14,15 @@ var Module = React.createClass({
 	},
 
 	render: function(){
-		return <div className={this.state.iconClass+" ui-module-icon"}>
+		return <div className={this.state.iconClass+" ui-module-icon"}
+					onClick={this.handleClick}>
 			<span className={this.state.imageClass+" ui-module-image"}></span>
 			<span className="ui-module-text">{this.state.text}</span>
 		</div>
+	},
+
+	handleClick: function(){
+		NoteActions.navigation(this.props.moduleType);
 	}
 })
 

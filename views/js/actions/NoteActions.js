@@ -60,6 +60,12 @@ var NoteActionts = {
 		CommonJS.ajax("/note/login","post",date, function(res){
 			dispatcher(res.result, res.params);
 		});
+	},
+	navigation: function(moduleType){
+		NoteDispatcher.dispatch({
+	      actionType: NoteConstants.NOTE_NAVIGATION,
+	      moduleType: moduleType
+	    });
 	}
 }
 

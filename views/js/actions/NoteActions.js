@@ -18,15 +18,16 @@ var NoteActionts = {
 		      actionType: NoteConstants.NOTE_CREATE,
 		      isSuccess: isSuccess
 		    });
-
-		    if (isSuccess) {
-		    	refreshFunc();
-		    };
 		}
 
 		var ajaxFunc = function(ret){
 			return function(res){
-				dispatcher(ret);
+				if (res.params.result) {
+					dispatcher(ret);
+				}
+				else{
+					dispatcher(false);
+				}
 			}
 		}
 

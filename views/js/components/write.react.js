@@ -13,11 +13,11 @@ var NoteWrite = React.createClass({
 	},
 
 	componentDidMount: function(){
-		NoteStores.addListener('click',this._onClick);
+		NoteStores.addListener('create',this._onClick);
 	},
 
 	componentWillUnmount: function(){
-		NoteStores.delListener('click',this._onClick);
+		NoteStores.delListener('create',this._onClick);
 	},
 
 	_onClick: function(isSuccess){
@@ -26,7 +26,7 @@ var NoteWrite = React.createClass({
 			value: ""
 		})
 		if (isSuccess) {
-			
+			alert('记录成功！');
 		}
 		else{
 			alert('记录失败！');

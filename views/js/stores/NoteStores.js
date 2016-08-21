@@ -19,7 +19,7 @@ var NoteStore = assign({}, EventEmitter.prototype, {
 NoteDispatcher.register(function(action){
 	switch(action.actionType){
 		case NoteConstants.NOTE_CREATE:
-			NoteStore.eventEmit('click',action.isSuccess);
+			NoteStore.eventEmit('create',action.isSuccess);
 			break;
 		case NoteConstants.NOTE_TITLES:
 			NoteStore.eventEmit('show',action.titles);

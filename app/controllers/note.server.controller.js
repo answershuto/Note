@@ -6,11 +6,12 @@ var fs = require('fs');
 
 module.exports = {
 	create: function(req, res, next){
+		var params = req.body.params;
 		var cfg = {
         	localTime: new Date().toLocaleString(),
         	userName: req.session.user.userName,
-        	title: req.body.title,
-        	text: req.body.value
+        	title: params.title,
+        	text: params.value
         }
 
 		var note = new Note(cfg);
@@ -22,7 +23,10 @@ module.exports = {
         	else{
         		console.log('save cfg:'+JSON.stringify(cfg)+' successed!');
         		res.status(200);
-				res.send('create successed');
+				res.send({
+							result: true,
+							params: {}
+						});
         	}
         });
 	},

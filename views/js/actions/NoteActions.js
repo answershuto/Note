@@ -21,8 +21,8 @@ var NoteActionts = {
 		}
 
 		var ajaxFunc = function(ret){
-			return function(res){
-				if (res.params.result) {
+			return function(res){console.log(res)
+				if (res.result) {
 					dispatcher(ret);
 				}
 				else{

@@ -41,7 +41,6 @@ var Login = React.createClass({
 	onLogin: function(isSuccess){
 		if (isSuccess) {
 			this.setState(update(this.state,{divClassName:{$set: 'ui-display-none'}}));
-			$(window.body).css('background-image',"")
 		}
 		else{
 			alert('用户名或者密码错误');

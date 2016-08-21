@@ -1,6 +1,9 @@
 var React = require('react');
 var NoteActions = require('../actions/NoteActions');
+var Show = require('./show.react');
+var Write = require('./write.react');
 var User = require('./user.react');
+var Head = require('./head.react');
 var Navigation = require('./Navigation.react');
 var NoteStores = require('../stores/NoteStores');
 var update = require('react-addons-update');
@@ -34,11 +37,21 @@ var Home = React.createClass({
 		
 		switch(this.state.moduleType){
 			case 'newNote':
-				
+				showModule = <div>
+					<Head text="新建笔记" />
+					<Write />
+				</div>
 				break;
 			case 'showNote':
+				showModule = <div>
+					<Head text="查看笔记" />
+					<Show />
+				</div>
 				break;
 			case 'findNote':
+				showModule = <div>
+					<Head text="搜索笔记" />
+				</div>
 				break;
 			case 'main':/*主页*/
 				showModule = <div>

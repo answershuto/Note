@@ -1,6 +1,6 @@
 var React = require('react');
-var NoteActions = require('../actions/NoteActions')
-var NoteStores = require('../stores/NoteStores')
+var NoteActions = require('../actions/NoteActions');
+var NoteStores = require('../stores/NoteStores');
 var update = require('react-addons-update');
 
 var NoteWrite = React.createClass({

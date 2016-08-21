@@ -22,7 +22,7 @@ NoteDispatcher.register(function(action){
 			NoteStore.eventEmit('create',action.isSuccess);
 			break;
 		case NoteConstants.NOTE_TITLES:
-			NoteStore.eventEmit('show',action.titles);
+			NoteStore.eventEmit('titlesShow',action.titles);
 			break;
 		case NoteConstants.NOTE_DELETE:
 			break;

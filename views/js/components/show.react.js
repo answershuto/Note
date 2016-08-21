@@ -14,17 +14,22 @@ var NoteShow = React.createClass({
 	},
 
 	componentDidMount: function(){
-		NoteStores.addListener('show',this._onShow);
+		NoteStores.addListener('titlesShow',this._onShow);
 	},
 
 	componentWillUnmount: function(){
-		NoteStores.delListener('show',this._onShow);
+		NoteStores.delListener('titlesShow',this._onShow);
 	},
 
 	_onShow: function(titles){
-		this.setState({
-			titles: titles
-		})
+		if (titles.result) {
+			this.setState({
+				titles: titles.params
+			})
+		}
+		else{
+			alert('获取数据失败，请重试！');
+		}
 	},
 
 	render: function(){

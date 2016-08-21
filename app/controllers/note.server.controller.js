@@ -36,7 +36,7 @@ module.exports = {
 			if (err) {
 				return next(err);
 			};
-			res.json(doc);
+			res.json({result: true,params:doc});
 		})
 	},
 

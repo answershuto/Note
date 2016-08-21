@@ -39,6 +39,9 @@ var NoteActionts = {
 	      titles: titles
 	    });
 	},
+	query: function(){
+		refreshFunc();
+	},
 	delete: function(date){
 		CommonJS.ajax("/note/delete","post",{'localTime':date},refreshFunc);
 	},
@@ -52,10 +55,6 @@ var NoteActionts = {
 		      isSuccess: isSuccess,
 		      params: params
 		    });
-
-		    if (isSuccess) {
-		    	refreshFunc();/*第一次加载页面直接刷新*/
-		    };
 		}
 
 		CommonJS.ajax("/note/login","post",date, function(res){

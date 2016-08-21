@@ -34,16 +34,22 @@ var NoteWrite = React.createClass({
 	},
 
 	render: function(){
-		return <div className="ui-noteInput-div ui-marginT-10">
+		return <div className="ui-noteInput-div">
 			<div>
-				<span className="ui-noteInput-span">标题</span>
-				<input className="ui-noteInput-input" type="text" onChange={this.handleTitleChange} value={this.state.title}></input>
-			</div>
-			<div>
-				<textarea type="text" className="ui-noteInput-textarea" onChange={this.handleTextChange} value={this.state.value}></textarea>
+				<input className="ui-noteInput-input" type="text" onChange={this.handleTitleChange} value={this.state.title} placeholder="标题"></input>
 				<a className="ui-noteInput-btn btn btn-success" onClick={this.handleClick}>记录</a>
 			</div>
-			<div className="ui-clear-both ui-marginB-20"></div>
+			<div>
+				<textarea 
+					 onChange={this.handleTextChange} 
+					 className="ui-noteInput-textarea"
+					 value={this.state.value}
+					 style={{
+					 	height: $(window).height()*3/4,
+					 	width: $(window).width()*4/5,
+					}}
+				></textarea>
+			</div>
 		</div>
 	},
 

@@ -31,7 +31,6 @@ var NoteApp = React.createClass({
 	},
 
 	onLogin: function(isSuccess,params){
-		console.log(isSuccess,params)
 		if (isSuccess) {
 			this.setState(update(this.state,{
 				className:{$set: ''},

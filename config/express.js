@@ -23,8 +23,8 @@ module.exports = function(){
 
 	app.use(function(req,res,next){
 		if (!req.session.user) {
-			if (req.url === '/note/login') {
-				next();/*请求为登陆则不需要校验session*/
+			if (req.url === '/note/login' || req.url === '/note/register') {
+				next();/*请求为登陆或者注册则不需要校验session*/
 			};
 		}
 		else if (req.session.user) {

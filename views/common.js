@@ -6,7 +6,7 @@ module.exports = {
 			'type': type || 'post',
 			'url': url,
 			'contentType': 'application/json;charset=utf-8',
-			'data': JSON.stringify(data),
+			'data': JSON.stringify({params: data}),
 			success: sucFunc || jQuery.noop(),
 			async: async || true,
 			error: errFunc || jQuery.noop()

@@ -7,7 +7,8 @@ var update = require('react-addons-update');
 var NoteApp = React.createClass({
 	getInitialState: function(){
 		return {
-			className : 'ui-display-none'
+			className : 'ui-display-none',
+			userInformation: 'user'
 		}
 	},
 
@@ -21,7 +22,7 @@ var NoteApp = React.createClass({
 
 	render: function(){
 		return <div className={this.state.className}>
-			<Home />
+			<Home userInformation={this.state.userInformation} />
 		</div>
 
 		/*
@@ -29,9 +30,13 @@ var NoteApp = React.createClass({
 		*/
 	},
 
-	onLogin: function(isSuccess){
+	onLogin: function(isSuccess,params){
+		console.log(isSuccess,params)
 		if (isSuccess) {
-			this.setState(update(this.state,{className:{$set: ''}}));
+			this.setState(update(this.state,{
+				className:{$set: ''},
+				userInformation:{$set: params}
+			}));
 		};
 	}
 })

@@ -7,8 +7,10 @@ var User = React.createClass({
 	
 	getInitialState: function(){
 		return {
-			userName: 'answer',
-			nikeNmae: "曹阳",
+			userInformation: {
+				userName: 'user',
+				nikeNmae: "user"
+			},
 			time: ""
 		};
 	},
@@ -24,6 +26,12 @@ var User = React.createClass({
 		clearInterval(this.timmer);
 	},
 
+	componentWillReceiveProps: function(newProps){
+		this.setState(update(this.state,{
+			userInformation:{$set: newProps.userInformation}
+		}));
+	},
+
 	render: function(){
 		return <div className="container-fluid ui-user-body">
 			
@@ -34,7 +42,7 @@ var User = React.createClass({
 					</div>
 					<div className="pull-left ui-marginL-15">
 						<div className="ui-marginT-10">
-							{this.state.nikeNmae+' ('+this.state.userName+')'}
+							{(this.state.userInformation.nikeNmae?this.state.userInformation.nikeNmae:this.state.userInformation.userName)+' ('+this.state.userInformation.userName+')'}
 						</div>
 						<div className="ui-marginT-10">{this.state.time}</div>
 					</div>

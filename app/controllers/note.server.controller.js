@@ -106,15 +106,19 @@ module.exports = {
 	},
 
 	login: function(req,res,next){
-		Users.find({userName:req.body.UserName},{userName:1,passWord:1,eMail:1},{},function(err,result){
+		var params = req.body.params;
+		Users.find({userName:params.UserName},{userName:1,passWord:1,eMail:1},{},function(err,result){
 			if (err) {
 				console.log('login find err!');
 				return next(err);
 			}
 			else{
-				if ((result.length !== 0) && (result[0].passWord === req.body.Password)) {
-					req.session.user = {'userName': req.body.UserName};
-					res.send(req.body.UserName+'login successed');
+				if ((result.length !== 0) && (result[0].passWord === params.Password)) {
+					req.session.user = {'userName': params.UserName};
+					res.send({
+						result: true,
+						params: result[0]
+					});
 				}
 				else{
 					res.send('login failed');

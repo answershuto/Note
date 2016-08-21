@@ -45,10 +45,11 @@ var NoteActionts = {
 		CommonJS.ajax("/note/modify","post",date,refreshFunc);
 	},
 	login: function(date){
-		var dispatcher = function(isSuccess){
+		var dispatcher = function(isSuccess,params){
 			NoteDispatcher.dispatch({
 		      actionType: NoteConstants.NOTE_LOGIN,
-		      isSuccess: isSuccess
+		      isSuccess: isSuccess,
+		      params: params
 		    });
 
 		    if (isSuccess) {
@@ -57,7 +58,7 @@ var NoteActionts = {
 		}
 
 		CommonJS.ajax("/note/login","post",date, function(res){
-			dispatcher(res.indexOf('success') >= 0);
+			dispatcher(res.result, res.params);
 		});
 	}
 }

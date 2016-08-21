@@ -10,8 +10,14 @@ var Home = React.createClass({
 	
 	getInitialState: function(){
 		return {
-			
+			userInformation: this.props.userInformation || {}
 		};
+	},
+
+	componentWillReceiveProps: function(newProps){
+		this.setState(update(this.state,{
+			userInformation:{$set: newProps.userInformation}
+		}));
 	},
 
 	componentDidMount: function(){
@@ -24,7 +30,7 @@ var Home = React.createClass({
 
 	render: function(){
 		return <div>
-			<User />
+			<User userInformation={this.state.userInformation} />
 			<Navigation />
 		</div>
 	}

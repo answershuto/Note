@@ -22,8 +22,7 @@
 
 .ui-noteShow-div{
 	margin:0px auto;
-	width: 1000px;
-	height: 400px;
+	width: 100%;
 	border-style: solid; 
 	border-width: 1px;
 	overflow: auto;

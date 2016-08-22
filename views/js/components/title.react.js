@@ -40,7 +40,7 @@ var NoteShow = React.createClass({
 
 	render: function(){
 		return <div className={this.props.bgClass}>
-			<div className="ui-width-900 ui-float-left">
+			<div className="ui-float-left">
 				<div>
 					<span>时间：</span>
 					<span>{this.props.date}</span>

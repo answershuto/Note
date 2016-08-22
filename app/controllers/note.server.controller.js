@@ -41,9 +41,10 @@ module.exports = {
 	},
 
 	delete: function(req,res,next){
+		var params = req.body.params;
 		var delObj = {
 			userName: req.session.user.userName,
-			localTime: req.body.localTime
+			localTime: params.localTime
 		}
 		Note.remove(delObj,function(err){
     		if (err) {
@@ -53,16 +54,16 @@ module.exports = {
     		else{
     			console.log('delete ' + JSON.stringify(delObj) + 'successed!');
     			res.status(200);
-    			res.send('delete successed');
+    			res.send({result:true,params:null});
     		}
     	})
 	},
 
 	modify: function(req,res,next){
-		Note.findById(req.body._id,function(err,d){
-			d.title = req.body.title;
-			d.text = req.body.text;
-			console.log(d.userName,req.session.user.userName)
+		var params = req.body.params;
+		Note.findById(params._id,function(err,d){
+			d.title = params.title;
+			d.text = params.text;
 			if (req.session.user.userName !== req.session.user.userName) {
 				/*如果用户对应不上直接返回错误*/
 				console.log('modify user err!');
@@ -77,7 +78,7 @@ module.exports = {
 				else{
 					console.log('modify ' + JSON.stringify(d) + 'successed!');
 					res.status(200);
-					res.send('modify successed!');
+					res.send({result:true,params:null});
 				}
 			})
 		})

@@ -7,7 +7,7 @@ var User = React.createClass({
 	
 	getInitialState: function(){
 		return {
-			userInformation: {
+			userInformation: this.props.userInformation || {
 				userName: 'user',
 				nikeNmae: "user"
 			},

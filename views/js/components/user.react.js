@@ -15,11 +15,14 @@ var User = React.createClass({
 		};
 	},
 
+	timeFunc: function(){
+		var dateObj = new Date();
+		this.setState(update(this.state,{time:{$set: (dateObj.getFullYear()+'/'+dateObj.getMonth()+'/'+dateObj.getDate()+' '+('00'.slice(0,0-dateObj.getHours().toString().length)+dateObj.getHours().toString())+':'+('00'.slice(0,0-(dateObj.getMinutes().toString().length))+dateObj.getMinutes())+':'+'00'.slice(0,0-dateObj.getSeconds().toString().length)+dateObj.getSeconds())}}));
+	},
+
 	componentDidMount: function(){
-		this.timmer = setInterval(function(){
-			var dateObj = new Date();
-			this.setState(update(this.state,{time:{$set: (dateObj.getFullYear()+'/'+dateObj.getMonth()+'/'+dateObj.getDate()+' '+('00'.slice(0,0-dateObj.getHours().toString().length)+dateObj.getHours().toString())+':'+('00'.slice(0,0-(dateObj.getMinutes().toString().length))+dateObj.getMinutes())+':'+'00'.slice(0,0-dateObj.getSeconds().toString().length)+dateObj.getSeconds())}}));
-		}.bind(this),500);
+		this.timeFunc();
+		this.timmer = setInterval(this.timeFunc.bind(this),500);
 	},
 
 	componentWillUnmount: function(){

@@ -4,6 +4,7 @@ var Show = require('./show.react');
 var Write = require('./write.react');
 var User = require('./user.react');
 var Head = require('./head.react');
+var Search = require('./Search.react');
 var Navigation = require('./Navigation.react');
 var NoteStores = require('../stores/NoteStores');
 var update = require('react-addons-update');
@@ -52,6 +53,7 @@ var Home = React.createClass({
 			case 'findNote':
 				showModule = <div>
 					<Head text="搜索笔记" />
+					<Search />
 				</div>
 				break;
 			case 'main':/*主页*/

@@ -3,7 +3,7 @@ var NoteActions = require('../actions/NoteActions')
 var NoteStores = require('../stores/NoteStores')
 var NoteTitle = require('./title.react')
 
-var bgClassName = ['bg-success','bg-info','bg-warning','bg-danger'];
+const bgClassName = ['bg-success','bg-info','bg-warning','bg-danger'];
 
 var NoteShow = React.createClass({
 	

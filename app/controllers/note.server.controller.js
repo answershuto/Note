@@ -40,6 +40,25 @@ module.exports = {
 		})
 	},
 
+	query: function(req,res,next){
+		var params = req.body.params;
+
+		Note.find({userName:req.session.user.userName},function(err,doc){
+			if (err) {
+				return next(err);
+			};
+
+			var result = [];
+			doc.forEach(function(item,index){
+				if ((item.title && item.title.indexOf && item.title.indexOf(params.condition)>=0)
+					|| (item.text && item.text.indexOf && item.text.indexOf(params.condition)>=0)) {
+					result.push(item);console.log(item)
+				};
+			})
+			res.json({result: true,params:result});
+		})
+	},
+
 	delete: function(req,res,next){
 		var params = req.body.params;
 		var delObj = {

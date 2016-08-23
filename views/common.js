@@ -11,5 +11,11 @@ module.exports = {
 			async: async || true,
 			error: errFunc || jQuery.noop()
 		})
+	},
+	stopDefault: function(e){
+		if ( e && e.preventDefault ) 
+		    e.preventDefault(); 
+		else
+		    window.event.returnValue = false; 
 	}
 }

@@ -32,6 +32,8 @@ NoteDispatcher.register(function(action){
 		case NoteConstants.NOTE_NAVIGATION:
 			NoteStore.eventEmit('navigation',action.moduleType)
 			break;
+		case NoteConstants.NOTE_QUERYRESULT: 
+			NoteStore.eventEmit('queryResult',action.res)
 		default:
 			break;
 	}

@@ -44,7 +44,7 @@ var Home = React.createClass({
 				</div>
 				break;
 			case 'showNote':
-				NoteActions.query();
+				NoteActions.queryAll();
 				showModule = <div>
 					<Head text="查看笔记" />
 					<Show />

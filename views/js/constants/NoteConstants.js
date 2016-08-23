@@ -5,5 +5,6 @@ module.exports = keyMirror({
   NOTE_TITLES: null,		/*显示笔记*/
   NOTE_DELETE: null,		/*删除笔记*/
   NOTE_LOGIN: null,			/*登陆*/
-  NOTE_NAVIGATION: null		/*导航*/
+  NOTE_NAVIGATION: null,	/*导航*/
+  NOTE_QUERYRESULT: null,	/*根据条件查询*/
 });

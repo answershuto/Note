@@ -22,4 +22,7 @@ module.exports = function(app){
 
 	app.route('/note/login')
 		.all(NoteController.login)
+
+	app.route('/note/query')
+		.all(NoteController.query)
 }

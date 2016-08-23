@@ -39,8 +39,16 @@ var NoteActionts = {
 	      titles: titles
 	    });
 	},
-	query: function(){
+	queryAll: function(){
 		refreshFunc();
+	},
+	query: function(condition){
+		CommonJS.ajax("/note/query","post",{condition:condition}, function(res){
+			NoteDispatcher.dispatch({
+		      actionType: NoteConstants.NOTE_QUERYRESULT,
+		      res: res
+		    });
+		});
 	},
 	delete: function(date){
 		CommonJS.ajax("/note/delete","post",{'localTime':date},refreshFunc);

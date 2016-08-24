@@ -16,7 +16,7 @@ var SchemaUser = new mongoose.Schema({
 	userName: String,
 	passWord: String,
 	eMail: String,
-	nikeNmae: String
+	nikeName: String
 })
 
 var Users = mongoose.model('Users', SchemaUser);

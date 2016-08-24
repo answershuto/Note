@@ -111,6 +111,7 @@ module.exports = {
         });
         req.on("end",function(){
             obj = qs.parse(data);
+            obj.nikeName = obj.userName;/*注册时候用户名当作昵称*/
 
             var user = new Users(obj);
             user.save(function(err){
@@ -131,7 +132,7 @@ module.exports = {
 
 	login: function(req,res,next){
 		var params = req.body.params;
-		Users.find({userName:params.UserName},{userName:1,passWord:1,eMail:1},{},function(err,result){
+		Users.find({userName:params.UserName},{userName:1,passWord:1,eMail:1,nikeName:1},{},function(err,result){
 			if (err) {
 				console.log('login find err!');
 				return next(err);

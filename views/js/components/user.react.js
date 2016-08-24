@@ -35,6 +35,10 @@ var User = React.createClass({
 		}));
 	},
 
+	handleSetupClick: function(){
+		NoteActions.navigation('setup');
+	},
+
 	render: function(){
 		return <div className="container-fluid ui-user-body">
 			
@@ -51,7 +55,7 @@ var User = React.createClass({
 					</div>
 				</div>
 				<div className="col-md-2 col-xs-2">
-					<div className="glyphicon glyphicon-cog ui-home-setup"></div>
+					<div className="glyphicon glyphicon-cog ui-home-setup" onClick={this.handleSetupClick}></div>
 				</div>
 			</div>
 		</div>

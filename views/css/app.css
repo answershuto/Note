@@ -190,6 +190,16 @@ body{
 	height: 50px;
 }
 
+.ui-setupInformation-div{
+	height: 50px;
+	line-height: 50px;
+	border:1px solid black;
+}
+
+.ui-setupInformation-right{
+	cursor: pointer;
+}
+
 
 
 

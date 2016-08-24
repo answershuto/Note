@@ -9,6 +9,7 @@ var Navigation = require('./Navigation.react');
 var NoteStores = require('../stores/NoteStores');
 var update = require('react-addons-update');
 var NoteShow = require('./show.react');
+var Setup = require('./Setup.react');
 
 var Home = React.createClass({
 	
@@ -54,6 +55,12 @@ var Home = React.createClass({
 				showModule = <div>
 					<Head text="搜索笔记" />
 					<Search />
+				</div>
+				break;
+			case 'setup':
+				showModule = <div>
+					<Head text="设置" />
+					<Setup userInformation={this.state.userInformation} />
 				</div>
 				break;
 			case 'main':/*主页*/

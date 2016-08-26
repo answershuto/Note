@@ -16,7 +16,8 @@ var SchemaUser = new mongoose.Schema({
 	userName: String,
 	passWord: String,
 	eMail: String,
-	nikeName: String
+	nikeName: String,
+	userImage: String
 })
 
 var Users = mongoose.model('Users', SchemaUser);

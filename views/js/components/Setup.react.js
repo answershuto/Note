@@ -5,19 +5,25 @@ var SetupInformation = require('./SetupInformation.react')
 
 const members = [
 	{
+		key: "头像",
+		userInformation: "userImage",
+		isImage: true,
+		isSupoortEdit: true
+	},
+	{
 		key: "用户名",
-		value: "userName",
+		userInformation: "userName",
 		isSupoortEdit: false
 	},
 	{
 		key: "昵称",
-		value: "nikeName",
+		userInformation: "nikeName",
 		isSupoortEdit: true
 	},
 	{
 		key: "e-mail",
-		value: "eMail",
-		isSupoortEdit: true
+		userInformation: "eMail",
+		isSupoortEdit: false
 	},
 ]
 
@@ -42,9 +48,10 @@ var Setup = React.createClass({
 		members.forEach(function(item,index){
 			informations.push(<SetupInformation 
 									informationKey={item.key} 
-									informationValue={this.state.userInformation[item.value]}
-									isSupoortEdit={item.isSupoortEdit} />)
-		}.bind(this))
+									informationValue={this.state.userInformation[item.userInformation]}
+									isSupoortEdit={item.isSupoortEdit} 
+									isImage={item.isImage}/>)
+			}.bind(this))
 		return <div>
 			{informations}
 		</div>

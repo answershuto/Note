@@ -7,7 +7,8 @@ var Head = React.createClass({
 	
 	getInitialState: function(){
 		return {
-			text: this.props.text || ""
+			text: this.props.text || "",
+			returnPage: this.props.returnPage || 'main'
 		};
 	},
 
@@ -17,6 +18,13 @@ var Head = React.createClass({
 
 	componentWillUnmount: function(){
 		
+	},
+
+	componentWillReceiveProps: function(newProps){
+		this.setState(update(this.state,{
+			text:{$set: newProps.text},
+			returnPage:{$set: newProps.returnPage}
+		}));
 	},
 
 	render: function(){
@@ -30,7 +38,7 @@ var Head = React.createClass({
 	},
 
 	handleReturnClick: function(){
-		NoteActions.navigation('main');
+		NoteActions.navigation(this.state.returnPage);
 	}
 })
 

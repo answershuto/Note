@@ -69,10 +69,11 @@ var NoteActionts = {
 			dispatcher(res.result, res.params);
 		});
 	},
-	navigation: function(moduleType){
+	navigation: function(moduleType,headText){
 		NoteDispatcher.dispatch({
 	      actionType: NoteConstants.NOTE_NAVIGATION,
-	      moduleType: moduleType
+	      moduleType: moduleType,
+	      headText: headText
 	    });
 	}
 }

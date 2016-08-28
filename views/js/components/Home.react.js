@@ -93,6 +93,7 @@ var Home = React.createClass({
 	},
 
 	_onUpdateUserInformation: function(params){
+		params.userImage += '?'+Math.random();
 		this.setState(update(this.state,{userInformation:{$set: params}}));
 	}
 })

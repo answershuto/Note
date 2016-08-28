@@ -26,7 +26,7 @@ var Edit = React.createClass({
 			case 'userImage':/*头像*/
 				show = <div className="">
 					<div className="ui-edit-icon-div">
-						<img onClick={this.handleIconClick} className="img-responsive ui-edit-icon img-circle" src={this.state.userInformation.userImage || "../../image/defaultHeadPortrait.png"}></img>
+						<img onClick={this.handleIconClick} className="img-responsive ui-edit-icon img-circle" src={this.state.userInformation.userImage+'?'+Math.random() || "../../image/defaultHeadPortrait.png"}></img>
 					</div>
 					<div className="ui-edit-notes-div">
 						<span>注：头像大小不得超过2M</span>

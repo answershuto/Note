@@ -9,7 +9,8 @@ var User = React.createClass({
 		return {
 			userInformation: this.props.userInformation || {
 				userName: 'user',
-				nikeNmae: "user"
+				nikeNmae: "user",
+				userImage: '../../image/defaultHeadPortrait.png'
 			},
 			time: ""
 		};
@@ -45,7 +46,7 @@ var User = React.createClass({
 			<div className="row">
 				<div className="col-md-10 col-xs-10">
 					<div className="pull-left">
-						<img className="img-circle ui-user-head" src="../../image/defaultHeadPortrait.png"></img>
+						<img className="img-circle ui-user-head" src={this.state.userInformation.userImage}></img>
 					</div>
 					<div className="pull-left ui-marginL-15">
 						<div className="ui-marginT-10">

@@ -46,7 +46,7 @@ var Setup = React.createClass({
 									informationKey={item.userInformation} 
 									informationValue={this.state.userInformation[item.userInformation]}
 									isSupoortEdit={item.isSupoortEdit} 
-									isImage={item.isImage}/>)
+									isImage={item.isImage} />)
 			}.bind(this));
 
 		return <div>

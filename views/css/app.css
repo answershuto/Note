@@ -223,6 +223,8 @@ body{
 }
 
 .ui-edit-icon{
+	width: 100px;
+	height: 100px;
 	cursor: pointer;
 }
 

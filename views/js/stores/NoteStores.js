@@ -30,7 +30,7 @@ NoteDispatcher.register(function(action){
 			NoteStore.eventEmit('login',action.isSuccess,action.params);
 			break;
 		case NoteConstants.NOTE_NAVIGATION:
-			NoteStore.eventEmit('navigation',action.moduleType,action.headText)
+			NoteStore.eventEmit('navigation',action.moduleType,action.headText,action.value)
 			break;
 		case NoteConstants.NOTE_QUERYRESULT: 
 			NoteStore.eventEmit('queryResult',action.res)

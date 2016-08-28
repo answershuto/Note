@@ -37,7 +37,7 @@ var Home = React.createClass({
 		NoteStores.delListener('navigation',this._onNavigation);
 	},
 
-	render: function(){
+	render: function(){console.log(this.state.userInformation)
 		var showModule = <div></div>;
 		
 		switch(this.state.moduleType){
@@ -69,7 +69,7 @@ var Home = React.createClass({
 			case 'edit':
 				showModule = <div>
 					<Head text={userInformation[this.state.headText]} returnPage="setup" />
-					<Edit editType={this.state.headText} />
+					<Edit editType={this.state.headText} userInformation={this.props.userInformation} />
 				</div>
 				break;
 			case 'main':/*主页*/

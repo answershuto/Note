@@ -8,7 +8,7 @@ var Edit = React.createClass({
 	getInitialState: function(){
 		return {
 			editType: this.props.editType,
-			imageSrc: this.props.imageSrc || "../../image/defaultHeadPortrait.png"
+			userInformation: this.props.userInformation
 		};
 	},
 
@@ -21,15 +21,20 @@ var Edit = React.createClass({
 	},
 
 	render: function(){
-		var show = "";console.log(this.state.uploadFile)
+		var show = "";
 		switch(this.state.editType){
 			case 'userImage':/*头像*/
 				show = <div className="">
 					<div className="ui-edit-icon-div">
-						<img onClick={this.handleIconClick} className="ui-edit-icon img-circle" src={this.state.imageSrc}></img>
+						<img onClick={this.handleIconClick} className="img-responsive ui-edit-icon img-circle" src={this.state.userInformation.userImage || "../../image/defaultHeadPortrait.png"}></img>
 					</div>
 					<div className="ui-edit-notes-div">
 						<span>注：头像大小不得超过2M</span>
+					</div>
+					<div className="ui-edit-notes-div">
+						<span>支持</span>
+						<span className="ui-color-red">*jpg、jpeg、png</span>
+						<span>格式的图片上传</span>
 					</div>
 					<form className="ui-display-none" action="/note/uploadIcon" method="post" encType="multipart/form-data" target="userImage">
 						<input id="edit_file" onChange={this.handleFileChange} type="file" accept="image/*" name="image"></input>

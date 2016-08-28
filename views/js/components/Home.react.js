@@ -93,7 +93,7 @@ var Home = React.createClass({
 	},
 
 	_onUpdateUserInformation: function(params){
-		params.userImage += '?'+Math.random();
+		params.userImage += '?'+Math.random();/*客户端消除缓存机制，不然会导致头像上传以后这里显示的头像还是以前的*/
 		this.setState(update(this.state,{userInformation:{$set: params}}));
 	}
 })

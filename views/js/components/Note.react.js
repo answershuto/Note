@@ -32,6 +32,8 @@ var NoteApp = React.createClass({
 
 	onLogin: function(isSuccess,params){
 		if (isSuccess) {
+			$.cookie('RanMoCloudNote_icon', params.userImage, {expires: 7});
+			$.cookie('RanMoCloudNote_userName', params.userName, {expires: 7});
 			this.setState(update(this.state,{
 				className:{$set: ''},
 				userInformation:{$set: params}

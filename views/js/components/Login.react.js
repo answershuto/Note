@@ -15,6 +15,10 @@ var Login = React.createClass({
 
 	componentDidMount: function(){
 		NoteStores.addListener('login',this.onLogin);
+		userName = $.cookie('RanMoCloudNote_userName');
+		if (userName) {
+			this.setState(update(this.state,{UserName:{$set: userName}}));
+		};
 	},
 
 	componentWillUnmount: function(){
@@ -22,12 +26,14 @@ var Login = React.createClass({
 	},
 
 	render: function(){
+		cookImg = $.cookie('RanMoCloudNote_icon');
+
 		return <div className={this.state.divClassName} style={{marginTop: $(window).height() / 5}}>
-			<div className="ui-login-img">
-				<img className="img-circle" src="../../image/defaultHeadPortrait.png">
-			</img></div>
+			<div className="ui-login-img-div">
+				<img className="img-circle img-circle ui-login-img" src={cookImg?cookImg:"../../image/defaultHeadPortrait.png"}></img>
+			</div>
 			<h2 className="ui-center">欢迎使用</h2>
-			<input type="text" className="form-control" value={this.state.userName} onChange={this.handleUserNameChange} placeholder="用户名" autofocus></input>
+			<input type="text" className="form-control" value={this.state.UserName} onChange={this.handleUserNameChange} placeholder="用户名" autofocus></input>
 			<input type="password" className="form-control" value={this.state.password} onChange={this.handlePasswordChange} placeholder="密码"></input>
 			<div>
 				<span>没有账号？</span>

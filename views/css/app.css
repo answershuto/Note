@@ -61,9 +61,14 @@ body{
 	background-repeat: no-repeat;
 }
 
-.ui-login-img{
+.ui-login-img-div{
 	margin: 0px auto;
 	width: 100px;
+}
+
+.ui-login-img{
+	width: 100px;
+	height: 100px;
 }
 
 .ui-register-div{

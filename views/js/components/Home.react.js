@@ -31,13 +31,15 @@ var Home = React.createClass({
 
 	componentDidMount: function(){
 		NoteStores.addListener('navigation',this._onNavigation);
+		NoteStores.addListener('updateUserInformation',this._onUpdateUserInformation);
 	},
 
 	componentWillUnmount: function(){
 		NoteStores.delListener('navigation',this._onNavigation);
+		NoteStores.delListener('updateUserInformation',this._onUpdateUserInformation);
 	},
 
-	render: function(){console.log(this.state.userInformation)
+	render: function(){
 		var showModule = <div></div>;
 		
 		switch(this.state.moduleType){
@@ -88,6 +90,10 @@ var Home = React.createClass({
 											moduleType:{$set: moduleType},
 											headText:{$set: headText}
 										}));
+	},
+
+	_onUpdateUserInformation: function(params){
+		this.setState(update(this.state,{userInformation:{$set: params}}));
 	}
 })
 

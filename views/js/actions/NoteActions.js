@@ -75,6 +75,16 @@ var NoteActionts = {
 	      moduleType: moduleType,
 	      headText: headText
 	    });
+	},
+	updateUserInformation: function(){
+		CommonJS.ajax("/note/getUserInformation","post",null, function(res){
+			if (res.result) {
+				NoteDispatcher.dispatch({
+			      actionType: NoteConstants.NOTE_UPDATE_USER_INFORMATION,
+			      params: res.params
+			    });
+			};
+		});
 	}
 }
 

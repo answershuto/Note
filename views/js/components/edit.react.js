@@ -40,7 +40,7 @@ var Edit = React.createClass({
 						<input id="edit_file" onChange={this.handleFileChange} type="file" accept="image/*" name="image"></input>
 						<input id="edit_upload" type="submit" value="上传头像"></input>
 					</form>
-					<iframe name="userImage" className="ui-display-none"></iframe>
+					<iframe id="edit_iframe" name="userImage" className="ui-display-none"></iframe>
 				</div>
 				break;
 			case 'nikeName':/*用户名*/
@@ -60,6 +60,26 @@ var Edit = React.createClass({
 
 	handleFileChange: function(e){
 		$('#edit_upload').click();
+
+		var timmer = setInterval(function(){
+			var text = window.frames["userImage"].document.body.innerHTML;
+			if (text) {
+				switch(text){
+					case 'uploadIcon successed':
+						NoteActions.updateUserInformation();
+						break;
+					case 'uploadIcon userImage err':
+						alert('图像保存失败，请重试');
+						break;
+					case 'uploadIcon img type err':
+						alert('上传头像格式有误，请重新上传');
+						break;
+					default:
+						alert('未知错误');
+				}
+				clearInterval(timmer);
+			};
+		},200);
 	}
 
 

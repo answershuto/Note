@@ -33,7 +33,11 @@ NoteDispatcher.register(function(action){
 			NoteStore.eventEmit('navigation',action.moduleType,action.headText,action.value)
 			break;
 		case NoteConstants.NOTE_QUERYRESULT: 
-			NoteStore.eventEmit('queryResult',action.res)
+			NoteStore.eventEmit('queryResult',action.res);
+			break;
+		case NoteConstants.NOTE_UPDATE_USER_INFORMATION:
+			NoteStore.eventEmit('updateUserInformation',action.params);
+			break;
 		default:
 			break;
 	}

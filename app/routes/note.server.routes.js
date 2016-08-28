@@ -28,4 +28,7 @@ module.exports = function(app){
 
 	app.route('/note/uploadIcon')
 		.all(NoteController.uploadIcon);
+
+	app.route('/note/getUserInformation')
+		.all(NoteController.getUserInformation);
 }

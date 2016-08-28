@@ -176,13 +176,10 @@ module.exports = {
 			}
 
 			if (fileType === undefined) {/*上传的图片格式没有按照指定要求*/
-				res.send('img type err');
+				res.send('uploadIcon img type err');
 			};
 
 			Users.find({userName:req.session.user.userName}, null,{},function(err,result){
-				console.log('result[0].userImage',result[0].userImage)
-				console.log('files.image',files.image.type)
-
 				var dst = __dirname+'/../../views/userDatas/userIcon/'+req.session.user.userName+'.'+fileType;
 				fs.writeFileSync(dst, fs.readFileSync(files.image.path));
 		
@@ -191,16 +188,30 @@ module.exports = {
 				result[0].save(function(err){
 					if (err) {
 						console.log('uploadIcon userImage err!');
+						res.send('uploadIcon userImage err');
 					};
 				})
 
 				fs.unlinkSync(files.image.path);/*删除缓存文件*/
-				res.send('ture')
+				res.send('uploadIcon successed');
 			})
+		})
+	},
 
+	getUserInformation: function(req,res,next){
+		Users.find({userName:req.session.user.userName}, null,{},function(err,result){
+			if (err) {
+				consoel.log('getUserInformation Users.find err!');
+				res.send({result: false, params:null});
+				return;
+			};
 			
-
+			res.send({result: true,params:result[0]});
 		})
 		
 	}
+
+
+
+
 }

@@ -159,12 +159,48 @@ module.exports = {
 		form.encoding = 'utf-8';
 		form.uploadDir = __dirname+'/../../uploadFiles/';
 		form.keepExtensions = true;
-		form.maxFieldsSize = 2*1024*1024;
+		form.maxFieldsSize = 2*1024*1024;/*限制图片大小最大为2M*/
 
+		var fileType;
 		form.parse(req, function(err,fields,files){
-			console.log(fields)
-			res.send('ok')
+			switch(files.image.type){
+				case 'image/jpeg':
+					fileType = 'jpeg';
+					break;
+				case 'image/png':
+					fileType = 'png';
+					break;
+				case 'image/jpg':
+					fileType = 'jpg';
+					break;
+			}
+
+			if (fileType === undefined) {/*上传的图片格式没有按照指定要求*/
+				res.send('img type err');
+			};
+
+			Users.find({userName:req.session.user.userName}, null,{},function(err,result){
+				console.log('result[0].userImage',result[0].userImage)
+				console.log('files.image',files.image.type)
+
+				var dst = __dirname+'/../../views/userDatas/userIcon/'+req.session.user.userName+'.'+fileType;
+				fs.writeFileSync(dst, fs.readFileSync(files.image.path));
+		
+				/*将用户头像路径存储到数据库*/
+				result[0].userImage = '/userDatas/userIcon/'+req.session.user.userName+'.'+fileType;
+				result[0].save(function(err){
+					if (err) {
+						console.log('uploadIcon userImage err!');
+					};
+				})
+
+				fs.unlinkSync(files.image.path);/*删除缓存文件*/
+				res.send('ture')
+			})
+
+			
+
 		})
-		//fs.writeFileSync(__dirname+'/../../uploadFiles/'+req.files.image.originalFilename,req.files.image.path)
+		
 	}
 }

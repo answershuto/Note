@@ -216,6 +216,25 @@ body{
 	cursor: pointer;
 }
 
+.ui-edit-icon-div{
+	width: 100px;
+	height: 100px;
+	margin: 30px auto;
+}
+
+.ui-edit-icon{
+	cursor: pointer;
+}
+
+.ui-edit-notes-div{
+	margin: 5px auto;
+	width: 180px;
+}
+
+.ui-edit-upload-div{
+	margin: 10px auto;
+	width: 200px;
+}
 
 
 

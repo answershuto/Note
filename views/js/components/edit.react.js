@@ -7,7 +7,6 @@ var Edit = React.createClass({
 	
 	getInitialState: function(){
 		return {
-			uploadFile: "",
 			editType: this.props.editType,
 			imageSrc: this.props.imageSrc || "../../image/defaultHeadPortrait.png"
 		};
@@ -22,8 +21,7 @@ var Edit = React.createClass({
 	},
 
 	render: function(){
-		console.log(this.state.editType)
-		var show = "";
+		var show = "";console.log(this.state.uploadFile)
 		switch(this.state.editType){
 			case 'userImage':/*头像*/
 				show = <div className="">
@@ -32,9 +30,6 @@ var Edit = React.createClass({
 					</div>
 					<div className="ui-edit-notes-div">
 						<span>注：头像大小不得超过2M</span>
-					</div>
-					<div className="ui-edit-upload-div">
-						<button onClick={this.handleIconUploadClick} className="btn btn-lg btn-default btn-block">上传</button>
 					</div>
 					<form className="ui-display-none" action="/note/uploadIcon" method="post" encType="multipart/form-data" target="userImage">
 						<input id="edit_file" onChange={this.handleFileChange} type="file" accept="image/*" name="image"></input>
@@ -59,16 +54,7 @@ var Edit = React.createClass({
 	},  
 
 	handleFileChange: function(e){
-		this.state.uploadFile = e.target.value;
-	},
-
-	handleIconUploadClick: function(e){
-		if (this.state.uploadFile) {
-			$('#edit_upload').click();
-		}
-		else{
-			alert('请选择上传的图片');
-		}
+		$('#edit_upload').click();
 	}
 
 

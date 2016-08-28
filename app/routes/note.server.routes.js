@@ -21,8 +21,11 @@ module.exports = function(app){
 		.all(NoteController.register);
 
 	app.route('/note/login')
-		.all(NoteController.login)
+		.all(NoteController.login);
 
 	app.route('/note/query')
-		.all(NoteController.query)
+		.all(NoteController.query);
+
+	app.route('/note/uploadIcon')
+		.all(NoteController.uploadIcon);
 }

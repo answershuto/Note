@@ -25,7 +25,7 @@ var Edit = React.createClass({
 		switch(this.state.editType){
 			case 'userImage':/*头像*/
 				show = <div>
-					<form action="/note/uploadIcon" method="post" target="userImage">
+					<form action="/note/uploadIcon" method="post" encType="multipart/form-data" target="userImage">
 						<input type="file" accept="image/*" name="image"></input>
 						<input type="submit" value="上传头像"></input>
 					</form>

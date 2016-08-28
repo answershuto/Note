@@ -3,6 +3,7 @@ var Note = mongoose.model('Note');
 var Users = mongoose.model('Users');
 var qs = require('querystring');
 var fs = require('fs');
+var formidable = require("formidable");
 
 module.exports = {
 	create: function(req, res, next){
@@ -104,7 +105,7 @@ module.exports = {
 		
 	},
 
-	register: function(req,res,next){
+	register: function(req,res,next){console.log('register',req.body)
 		var data="";
         req.on("data",function(postdata){
             data+=postdata; 
@@ -123,7 +124,7 @@ module.exports = {
             	}
             	else{
             		console.log('register '+ JSON.stringify(obj) +' successed!');
-            		res.send('<span>注册成功，</span><a href="/index.html">点击这里</a><span>跳转...</span>');
+            		res.redirect(303, '/');/*重定向到*/
             	}
             })
 
@@ -151,5 +152,19 @@ module.exports = {
 				}
 			}
 		})
+	},
+
+	uploadIcon: function(req, res, next){
+		var form = new formidable.IncomingForm();
+		form.encoding = 'utf-8';
+		form.uploadDir = __dirname+'/../../uploadFiles/';
+		form.keepExtensions = true;
+		form.maxFieldsSize = 2*1024*1024;
+
+		form.parse(req, function(err,fields,files){
+			console.log(fields)
+			res.send('ok')
+		})
+		//fs.writeFileSync(__dirname+'/../../uploadFiles/'+req.files.image.originalFilename,req.files.image.path)
 	}
 }

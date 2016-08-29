@@ -114,6 +114,10 @@ module.exports = {
             obj = qs.parse(data);
             obj.nikeName = obj.userName;/*注册时候用户名当作昵称*/
             obj.userImage = "/image/defaultHeadPortrait.png";
+            obj.Gender = 0;
+            obj.age = 0;
+            obj.personalizedSignature = "";
+            obj.place = "";
 
             var user = new Users(obj);
             user.save(function(err){

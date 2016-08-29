@@ -13,11 +13,15 @@ var News = mongoose.model('Note', Schema);
 
 /*用户表*/
 var SchemaUser = new mongoose.Schema({
-	userName: String,
-	passWord: String,
-	eMail: String,
-	nikeName: String,
-	userImage: String
+	userName: String,					/*用户名*/
+	passWord: String,					/*密码*/
+	eMail: String,						/*邮箱*/
+	nikeName: String,					/*昵称*/
+	userImage: String,					/*头像*/
+	Gender: String,						/*性别 0-男 1-女*/
+	age: String,						/*年龄*/
+	personalizedSignature:String,		/*个性签名*/
+	place: String						/*所在区域*/
 })
 
 var Users = mongoose.model('Users', SchemaUser);

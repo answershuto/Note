@@ -21,6 +21,22 @@ const members = [
 		userInformation: "eMail",
 		isSupoortEdit: false
 	},
+	{
+		userInformation: "place",
+		isSupoortEdit: true
+	},
+	{
+		userInformation: "personalizedSignature",
+		isSupoortEdit: true
+	},
+	{
+		userInformation: "age",
+		isSupoortEdit: true
+	},
+	{
+		userInformation: "Gender",
+		isSupoortEdit: true
+	}
 ]
 
 var Setup = React.createClass({

@@ -32,10 +32,10 @@ var SetupInformation = React.createClass({
 		}
 
 		return <div onClick={this.handleClick} className={this.state.isImage?"ui-setupInformation-image-div":"ui-setupInformation-div"}>
-			<div className="col-md-2 col-xs-3">
+			<div className="col-md-2 col-xs-4">
 				<span>{userInformation[this.state.informationKey]}</span>
 			</div>
-			<div className="col-md-8 col-xs-7">
+			<div className="col-md-8 col-xs-6">
 				{info}
 			</div>
 			<div className="col-md-2 col-xs-2">

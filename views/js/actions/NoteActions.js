@@ -85,6 +85,13 @@ var NoteActionts = {
 			    });
 			};
 		});
+	},
+	modifyUserInformation: function(userInformation){
+		CommonJS.ajax("/note/modifyUserInformation","post",userInformation, function(res){
+			if (res.result) {
+				console.log(res)
+			};
+		});
 	}
 }
 

@@ -31,4 +31,7 @@ module.exports = function(app){
 
 	app.route('/note/getUserInformation')
 		.all(NoteController.getUserInformation);
+
+	app.route('/note/modifyUserInformation')
+		.all(NoteController.modifyUserInformation);
 }

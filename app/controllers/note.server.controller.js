@@ -114,7 +114,7 @@ module.exports = {
             obj = qs.parse(data);
             obj.nikeName = obj.userName;/*注册时候用户名当作昵称*/
             obj.userImage = "/image/defaultHeadPortrait.png";
-            obj.Gender = 0;
+            obj.Gender = '男';
             obj.age = 0;
             obj.personalizedSignature = "";
             obj.place = "";
@@ -213,6 +213,31 @@ module.exports = {
 			res.send({result: true,params:result[0]});
 		})
 		
+	},
+
+	modifyUserInformation: function(req,res,next){
+		var params = req.body.params;
+		console.log(params)
+		Users.findById(params._id,function(err,user){
+			console.log('user',user)
+			/*只修改可以修改的字段*/
+			user.nikeName = params.nikeName;
+			user.Gender = params.Gender === "男" ? "男":"女";
+			user.age = Number(params.age);
+			user.personalizedSignature = params.personalizedSignature;
+			user.place = params.place;
+
+			console.log('modify',user);
+			user.save(function(err){
+				if (err) {
+					console.log('modifyUserInformation user save err!');
+					res.send({result: false,params: null});
+					return;
+				};
+
+				res.send({result: true,params: null});
+			})
+		})
 	}
 
 

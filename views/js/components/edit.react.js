@@ -44,15 +44,34 @@ var Edit = React.createClass({
 				</div>
 				break;
 			case 'nikeName':/*用户名*/
+				show = <div>
+					<input className="form-control input-sm" placeholder="用户名" type="text" value={this.state.userInformation[this.state.editType]} onChange={this.handleInputChange} onBlur={this.handleInputBlur}></input>
+				</div>
+				break;
+			case 'place':
+			case 'personalizedSignature':
+			case 'age':
+			case 'Gender':
+				console.log(this.props.userInformation[this.state.editType])
 				break;
 			default:
 				break;
 		}
 
-		return <div className="">
+		return <div>
 			{show}
 		</div>
 	},
+
+	handleInputChange: function(e){
+		var infor = this.state.userInformation;
+		infor[this.state.editType] = e.target.value;
+		this.setState(update(this.state,{userInformation:{$set: infor}}));
+	},
+
+	handleInputBlur: function(e){
+		NoteActions.modifyUserInformation(this.state.userInformation);
+	},	
 
 	handleIconClick: function(e){
 		$('#edit_file').click();

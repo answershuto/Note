@@ -18,7 +18,7 @@ var SchemaUser = new mongoose.Schema({
 	eMail: String,						/*邮箱*/
 	nikeName: String,					/*昵称*/
 	userImage: String,					/*头像*/
-	Gender: String,						/*性别 0-男 1-女*/
+	Gender: String,						/*性别*/
 	age: String,						/*年龄*/
 	personalizedSignature:String,		/*个性签名*/
 	place: String						/*所在区域*/

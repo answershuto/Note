@@ -43,16 +43,33 @@ var Edit = React.createClass({
 					<iframe id="edit_iframe" name="userImage" className="ui-display-none"></iframe>
 				</div>
 				break;
-			case 'nikeName':/*用户名*/
+			case 'nikeName':/*昵称*/
 				show = <div>
-					<input className="form-control input-sm" placeholder="用户名" type="text" value={this.state.userInformation[this.state.editType]} onChange={this.handleInputChange} onBlur={this.handleInputBlur}></input>
+					<input className="form-control input-sm" placeholder="昵称" type="text" value={this.state.userInformation[this.state.editType]} onChange={this.handleInputChange} onBlur={this.handleInputBlur}></input>
 				</div>
 				break;
-			case 'place':
+			case 'place':/*所在区域*/
+				show = <div>
+					<input className="form-control input-sm" placeholder="所在区域" type="text" value={this.state.userInformation[this.state.editType]} onChange={this.handleInputChange} onBlur={this.handleInputBlur}></input>
+				</div>
+				break;
 			case 'personalizedSignature':
+				show = <div>
+					<input className="form-control input-sm" placeholder="个性签名" type="text" value={this.state.userInformation[this.state.editType]} onChange={this.handleInputChange} onBlur={this.handleInputBlur}></input>
+				</div>
+				break;
 			case 'age':
+				show = <div>
+					<input className="form-control input-sm" placeholder="年龄" type="text" value={this.state.userInformation[this.state.editType]} onChange={this.handleInputChange} onBlur={this.handleInputBlur}></input>
+				</div>
+				break;
 			case 'Gender':
-				console.log(this.props.userInformation[this.state.editType])
+				show = <div>
+					<select value={this.state.userInformation[this.state.editType]} onChange={this.handleInputChange} onBlur={this.handleInputBlur}>
+						<option>男</option>
+						<option>女</option>
+					</select>
+				</div>
 				break;
 			default:
 				break;

@@ -22,13 +22,40 @@ var SetupInformation = React.createClass({
 		
 	},
 
+	/*得到截断的字符串，防止长度超出限制换行*/
+	getString: function(str, num){
+		var bytesCount = 0;
+		var strSring = "";
+		for (var i = 0; i < str.length; i++)
+		{
+			var c = str.charAt(i);
+			if (/^[\u0000-\u00ff]$/.test(c)) //匹配双字节
+			{
+			  	bytesCount += 1;
+			}
+			else
+			{
+				bytesCount += 3;
+			}
+
+			strSring += str[i];
+
+			if (bytesCount > num) {
+				strSring += '..';
+			  	return strSring;
+			};
+		}
+
+		return strSring;
+	},
+
 	render: function(){
 		var info;
 		if (this.state.isImage) {
 			info = <img className="img-responsive img-circle ui-setupInformation-image" src={this.state.informationValue}></img>
 		}
 		else{
-			info = <span className="pull-right ui-marginR-20">{this.state.informationValue}</span>;
+			info = <span className="pull-right ui-marginR-20">{this.getString(this.state.informationValue,19)}</span>;
 		}
 
 		return <div onClick={this.handleClick} className={this.state.isImage?"ui-setupInformation-image-div":"ui-setupInformation-div"}>

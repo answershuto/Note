@@ -45,22 +45,28 @@ var Edit = React.createClass({
 				break;
 			case 'nikeName':/*昵称*/
 				show = <div>
-					<input className="form-control input-sm" placeholder="昵称" type="text" value={this.state.userInformation[this.state.editType]} onChange={this.handleInputChange} onBlur={this.handleInputBlur}></input>
+					<input className="form-control input-sm" maxLength='10' placeholder="昵称" type="text" value={this.state.userInformation[this.state.editType]} onChange={this.handleInputChange} onBlur={this.handleInputBlur}></input>
 				</div>
 				break;
 			case 'place':/*所在区域*/
 				show = <div>
-					<input className="form-control input-sm" placeholder="所在区域" type="text" value={this.state.userInformation[this.state.editType]} onChange={this.handleInputChange} onBlur={this.handleInputBlur}></input>
+					<input className="form-control input-sm" maxLength='20' placeholder="所在区域" type="text" value={this.state.userInformation[this.state.editType]} onChange={this.handleInputChange} onBlur={this.handleInputBlur}></input>
 				</div>
 				break;
 			case 'personalizedSignature':
 				show = <div>
-					<input className="form-control input-sm" placeholder="个性签名" type="text" value={this.state.userInformation[this.state.editType]} onChange={this.handleInputChange} onBlur={this.handleInputBlur}></input>
+					<input className="form-control input-sm" maxLength='20' placeholder="个性签名" type="text" value={this.state.userInformation[this.state.editType]} onChange={this.handleInputChange} onBlur={this.handleInputBlur}></input>
 				</div>
 				break;
 			case 'age':
+				var ages = [];
+				for(var i=0;i<100;i++){
+					ages.push(<option>{i}</option>)
+				}
 				show = <div>
-					<input className="form-control input-sm" placeholder="年龄" type="text" value={this.state.userInformation[this.state.editType]} onChange={this.handleInputChange} onBlur={this.handleInputBlur}></input>
+					<select className="ui-edit-select" value={this.state.userInformation[this.state.editType]} onChange={this.handleInputChange} onBlur={this.handleInputBlur}>
+						{ages}
+					</select>
 				</div>
 				break;
 			case 'Gender':

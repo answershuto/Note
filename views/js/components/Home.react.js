@@ -1,6 +1,7 @@
 var React = require('react');
 var NoteActions = require('../actions/NoteActions');
 var Show = require('./show.react');
+var About = require('./aboutUs.react')
 var Write = require('./write.react');
 var User = require('./user.react');
 var Head = require('./head.react');
@@ -41,7 +42,6 @@ var Home = React.createClass({
 
 	render: function(){
 		var showModule = <div></div>;
-		
 		switch(this.state.moduleType){
 			case 'newNote':
 				showModule = <div>
@@ -79,6 +79,12 @@ var Home = React.createClass({
 					<User userInformation={this.state.userInformation} />
 					<Navigation />
 				</div>;
+				break;
+			case 'aboutUs':
+				showModule = <div>
+					<Head text="关于我们" returnPage="setup" />
+					<About />
+				</div>
 				break;
 		}
 

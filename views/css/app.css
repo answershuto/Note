@@ -247,8 +247,35 @@ body{
 	width: 100%;
 }
 
+.ui-setup-aboutUs,.ui-setup-exit{
+	border:1px solid black;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	cursor: pointer;
+}
 
+.ui-about-image{
+	margin: 10px auto;
+	width: 85px;
+	height: 70px;
+}
 
+.ui-about-name{
+	width: 200px;
+	margin: 20px auto;
+	text-align: center;
+}
+
+.ui-about-information{
+	margin: 30px;
+}
+
+.ui-about-information div{
+	width: 300px;
+	margin: 10px auto;
+	text-align: center;
+}
 
 
 

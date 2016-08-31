@@ -67,7 +67,17 @@ var Setup = React.createClass({
 
 		return <div>
 			{informations}
+			<div className="ui-setup-aboutUs" onClick={this.handleAboutUsClick}>关于我们</div>
+			<div className="ui-setup-exit" onClick={this.handleExitClick}>退出登陆</div>
 		</div>
+	},
+
+	handleExitClick: function(){
+		window.location.href = '/';
+	},
+
+	handleAboutUsClick: function(){
+		NoteActions.navigation("aboutUs",'pp');
 	}
 })
 

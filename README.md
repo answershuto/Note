@@ -15,6 +15,9 @@
 		
 		npm start
 		
+		
+		open localhost:2000
+		
 ## 简介
 
 染陌云笔记，后端采用Node.js，前端采用React,ui采用bootstrap响应式布局，数据库mongodb。

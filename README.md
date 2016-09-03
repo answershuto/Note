@@ -3,10 +3,15 @@
 ## 运行
 
 		cd /Note
+		
+		npm install
 
 		node bin/www 
 		
+		
 		cd /Note/views
+		
+		npm install
 		
 		npm start
 		

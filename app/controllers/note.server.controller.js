@@ -105,7 +105,7 @@ module.exports = {
 		
 	},
 
-	register: function(req,res,next){console.log('register',req.body)
+	register: function(req,res,next){
 		var data="";
         req.on("data",function(postdata){
             data+=postdata; 

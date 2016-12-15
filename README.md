@@ -2,22 +2,25 @@
 
 ## 运行
 
-		cd /Note
-		
-		npm install
+```shell
+	cd /Note
 
-		node bin/www 
-		
-		
-		cd /Note/views
-		
-		npm install
-		
-		npm start
-		
-		
-		open localhost:2000
-		
+	npm install
+
+	node bin/www 
+```
+
+```shell	
+	cd /Note/views
+
+	npm install
+
+	npm start
+```
+
+​		
+	open localhost:2000
+
 ## 简介
 
 染陌云笔记，后端采用Node.js，前端采用React,ui采用bootstrap响应式布局，数据库mongodb。
